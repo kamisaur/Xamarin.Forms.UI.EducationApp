@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Grid
+    x:Class="EducationApp.Templates.CourseTemplate"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    
+    <Frame
+        Margin="38,11,0,11"
+        Padding="22,20"
+        WidthRequest="300"
+        BackgroundColor="{StaticResource Course1}"
+        CornerRadius="29"
+        HasShadow="False"
+        VerticalOptions="Start">
+        <StackLayout Spacing="8">
+
+            <StackLayout Orientation="Horizontal" Spacing="8">
+
+                <Label
+                    Margin="0,0,0,8"
+                    FontFamily="{StaticResource RegularFont}"
+                    FontSize="22"
+                    HorizontalOptions="FillAndExpand"
+                    Text="{Binding .}"
+                    TextColor="{StaticResource TextOnCourse}"
+                    VerticalOptions="Center" />
+
+
+                <Label
+                    FontSize="20"
+                    HorizontalOptions="End"
+                    Text="⋯"
+                    TextColor="{StaticResource TextOnCourse}"
+                    VerticalOptions="Center" />
+
+            </StackLayout>
+
+            <Label
+                FontFamily="{StaticResource RegularFont}"
+                FontSize="13"
+                Text="35/210 lessons"
+                TextColor="{StaticResource TextOnCourse}" />
+
+            <ProgressBar
+                BackgroundColor="{StaticResource TextOnCourse}"
+                HeightRequest="5"
+                Progress=".3"
+                ProgressColor="{StaticResource Progress1}" />
+
+        </StackLayout>
+    </Frame>
+
+
+</Grid>
