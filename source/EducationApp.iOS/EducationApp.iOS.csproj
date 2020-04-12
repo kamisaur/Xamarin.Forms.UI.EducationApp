@@ -140,5 +140,20 @@
     <BundleResource Include="Resources\OpenSans-Bold.ttf" />
     <BundleResource Include="Resources\OpenSans-SemiBold.ttf" />
     <BundleResource Include="Resources\OpenSans-Regular.ttf" />
+    <BundleResource Include="Resources\avatar.png" />
+    <BundleResource Include="Resources\avatar%402x.png" />
+    <BundleResource Include="Resources\avatar%403x.png" />
+    <BundleResource Include="Resources\home.png" />
+    <BundleResource Include="Resources\home%402x.png" />
+    <BundleResource Include="Resources\home%403x.png" />
+    <BundleResource Include="Resources\notification_bell.png" />
+    <BundleResource Include="Resources\notification_bell%402x.png" />
+    <BundleResource Include="Resources\notification_bell%403x.png" />
+    <BundleResource Include="Resources\search.png" />
+    <BundleResource Include="Resources\search%402x.png" />
+    <BundleResource Include="Resources\search%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\avatar.imageset\" />
   </ItemGroup>
 </Project>

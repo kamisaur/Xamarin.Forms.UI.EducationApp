@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
-    x:Class="EducationApp.MainPage"
+    x:Class="EducationApp.Views.HomeView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:templates="clr-namespace:EducationApp.Templates"
+    xmlns:controls="clr-namespace:EducationApp.Controls"
     mc:Ignorable="d">
 
 
@@ -44,12 +44,18 @@
             <templates:LessonTemplate />
         </DataTemplate>
 
+
+        <Style x:Key="NavbarIconStyle" TargetType="Image">
+            <Setter Property="HeightRequest" Value="21" />
+            <Setter Property="WidthRequest" Value="21" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+
     </ContentPage.Resources>
 
 
-
-
-    <Grid Margin="0,30,0,0" BackgroundColor="Transparent">
+    <Grid Margin="{OnPlatform iOS='0,30,0,0', Android='0'}" BackgroundColor="Transparent">
 
         <ScrollView Grid.Row="0">
 
@@ -60,65 +66,52 @@
                     Padding="38,38,0,0"
                     Orientation="Horizontal"
                     Spacing="21">
-                    <BoxView
-                        BackgroundColor="{StaticResource AvatarBackground}"
-                        CornerRadius="14"
-                        HeightRequest="65"
-                        HorizontalOptions="Start"
-                        VerticalOptions="Center"
-                        WidthRequest="65" />
+
+                    <!--#region User Image-->
+                    <Grid HeightRequest="65" WidthRequest="65">
+
+                        <BoxView BackgroundColor="{StaticResource AvatarBackground}" CornerRadius="14" />
+
+                        <Image
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Source="avatar" />
+
+                    </Grid>
+                    <!--#endregion-->
 
                     <StackLayout VerticalOptions="Center">
 
+                        <!--#region Name/Rating-->
                         <StackLayout Orientation="Horizontal" Spacing="16">
 
                             <Label
+                                d:Text="John Whilson"
                                 FontFamily="{StaticResource RegularFont}"
                                 FontSize="22"
-                                Text="John Whilson" />
+                                Text="{Binding User.Name}" />
 
-                            <StackLayout
-                                BindableLayout.ItemsSource="{StaticResource stars}"
-                                Orientation="Horizontal"
-                                VerticalOptions="Center">
-
-                                <BindableLayout.ItemTemplate>
-                                    <DataTemplate>
-
-                                        <Label
-                                            FontFamily="{StaticResource RegularFont}"
-                                            FontSize="14"
-                                            Text="★">
-
-                                            <Label.Triggers>
-                                                <DataTrigger
-                                                    Binding="{Binding .}"
-                                                    TargetType="Label"
-                                                    Value="true">
-                                                    <Setter Property="TextColor" Value="{StaticResource StarChecked}" />
-                                                </DataTrigger>
-
-                                                <DataTrigger
-                                                    Binding="{Binding .}"
-                                                    TargetType="Label"
-                                                    Value="false">
-                                                    <Setter Property="TextColor" Value="{StaticResource StarUnchecked}" />
-                                                </DataTrigger>
-                                            </Label.Triggers>
-
-                                        </Label>
-
-                                    </DataTemplate>
-                                </BindableLayout.ItemTemplate>
-
-                            </StackLayout>
+                            <controls:RatingControl Rating="3" MaxRating="5" />
 
                         </StackLayout>
+                        <!--#endregion-->
 
+
+                        <!--#region Age/Position-->
                         <Label
+                            d:Text="22 y.o., Frontend Developer"
                             FontFamily="{StaticResource RegularFont}"
-                            FontSize="14"
-                            Text="22 y.o., Frontend Developer" />
+                            FontSize="14">
+
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding User.Age}" />
+                                    <Span Text=" y.o., " />
+                                    <Span Text="{Binding User.Position}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <!--#endregion-->
 
                     </StackLayout>
 
@@ -161,16 +154,54 @@
 
         </ScrollView>
 
-        <Grid VerticalOptions="End">
+
+        
+        <pancake:PancakeView
+            VerticalOptions="End"
+            HeightRequest="124"
+            BackgroundColor="{StaticResource AvatarBackground}"
+            CornerRadius="56,56,0,0" />
+
+
+        <Grid VerticalOptions="End"
+            HeightRequest="124"
+              >
+
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+
             <pancake:PancakeView
                 HeightRequest="124"
                 BackgroundColor="{StaticResource AvatarBackground}"
                 CornerRadius="56,56,0,0" />
 
 
-            <Grid TranslationY="-39"
-                    VerticalOptions="Start"
-                    HorizontalOptions="Center">
+            <Image
+                Grid.Column="0"
+                Source="home"
+                Margin="20,0,0,0"
+                Style="{StaticResource NavbarIconStyle}" />
+
+
+            <Image
+                Grid.Column="1"
+                Source="search"
+                Style="{StaticResource NavbarIconStyle}" />
+
+
+
+            <Grid
+                Grid.Column="2"
+                TranslationY="-39"
+                VerticalOptions="Start"
+                HorizontalOptions="Center">
 
                 <pancake:PancakeView
                     BackgroundColor="{StaticResource NavBarAddIcon}"
@@ -180,21 +211,42 @@
                     HeightRequest="78"
                     WidthRequest="78" />
 
-                <BoxView HeightRequest="1.8"
-                         WidthRequest="19"
-                         BackgroundColor="{StaticResource TextOnCourse}"
-                         HorizontalOptions="Center"
-                         VerticalOptions="Center"/>
+                <BoxView
+                    HeightRequest="1.8"
+                    WidthRequest="19"
+                    BackgroundColor="{StaticResource TextOnCourse}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
 
-                <BoxView WidthRequest="1.8"
-                         HeightRequest="19"
-                         BackgroundColor="{StaticResource TextOnCourse}"
-                         VerticalOptions="Center"
-                         HorizontalOptions="Center"/>
+                <BoxView
+                    WidthRequest="1.8"
+                    HeightRequest="19"
+                    BackgroundColor="{StaticResource TextOnCourse}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" />
 
             </Grid>
+
+
+            
+            <Image
+                Grid.Column="3"
+                Source="home"
+                Style="{StaticResource NavbarIconStyle}" />
+
+
+            <Image
+                Grid.Column="4"
+                Source="search"
+                Margin="0,0,20,0"
+                Style="{StaticResource NavbarIconStyle}" />
+
+
+
+
         </Grid>
 
     </Grid>
+
 
 </ContentPage>

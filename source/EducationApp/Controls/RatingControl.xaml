@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Grid
+    x:Class="EducationApp.Controls.RatingControl"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+
+    <Grid.Resources>
+
+        <x:Array x:Key="stars" Type="{x:Type x:Boolean}">
+            <x:Boolean>true</x:Boolean>
+            <x:Boolean>true</x:Boolean>
+            <x:Boolean>true</x:Boolean>
+            <x:Boolean>false</x:Boolean>
+            <x:Boolean>false</x:Boolean>
+        </x:Array>
+
+
+    </Grid.Resources>
+
+
+    <StackLayout
+        BindableLayout.ItemsSource="{StaticResource stars}"
+        Orientation="Horizontal"
+        VerticalOptions="Center">
+
+
+        <BindableLayout.ItemTemplate>
+            <DataTemplate>
+
+                <Label
+                    FontFamily="{StaticResource RegularFont}"
+                    FontSize="14"
+                    Text="★">
+
+                    <Label.Triggers>
+                        <DataTrigger
+                            Binding="{Binding .}"
+                            TargetType="Label"
+                            Value="true">
+                            <Setter Property="TextColor" Value="{StaticResource StarChecked}" />
+                        </DataTrigger>
+
+                        <DataTrigger
+                            Binding="{Binding .}"
+                            TargetType="Label"
+                            Value="false">
+                            <Setter Property="TextColor" Value="{StaticResource StarUnchecked}" />
+                        </DataTrigger>
+                    </Label.Triggers>
+
+                </Label>
+
+            </DataTemplate>
+        </BindableLayout.ItemTemplate>
+    </StackLayout>
+
+</Grid>

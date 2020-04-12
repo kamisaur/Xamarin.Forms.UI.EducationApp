@@ -45,7 +45,10 @@
                 BackgroundColor="{StaticResource TextOnCourse}"
                 HeightRequest="5"
                 Progress=".3"
+                WidthRequest="176"
+                HorizontalOptions="Start"
                 ProgressColor="{StaticResource Progress1}" />
+                <!--Margin="0,0,100,0"-->
 
         </StackLayout>
     </Frame>
