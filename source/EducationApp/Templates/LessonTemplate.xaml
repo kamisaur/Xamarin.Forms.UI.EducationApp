@@ -1,61 +1,80 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ContentView
+<Grid
     x:Class="EducationApp.Templates.LessonTemplate"
     xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    WidthRequest="154"
+    HeightRequest="132"
     xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:converters="clr-namespace:EducationApp.Converters">
+        <Grid.Resources>
+            <converters:AppColorNameToColorConverter x:Key="colorConverter" />
+    </Grid.Resources>
 
-    <pancake:PancakeView
-        Margin="38,23,0,0"
-        Padding="16"
-        BorderColor="{StaticResource Course1}"
-        BorderThickness="4"
-        CornerRadius="33"
-        HasShadow="False"
-        WidthRequest="154"
-        VerticalOptions="Start">
+<pancake:PancakeView
+    Padding="16"
+    BorderColor="{Binding Color, Converter={StaticResource colorConverter}}"
+    BorderThickness="4"
+    CornerRadius="33"
+    HasShadow="False"
+    Margin="2">
 
-        <StackLayout Spacing="8">
-
-
-            <Label
-                FontFamily="{StaticResource BoldFont}"
-                FontSize="14"
-                HorizontalOptions="FillAndExpand"
-                Text="36."
-                TextColor="{StaticResource Course1}"
-                VerticalOptions="Center" />
+    <StackLayout Spacing="2" >
 
 
-            <Label
-                FontFamily="{StaticResource SemiBoldFont}"
-                FontSize="14"
-                HorizontalOptions="FillAndExpand"
-                Text="The Present Perfect"
-                TextColor="{StaticResource PrimaryText}"
-                VerticalOptions="Center" />
+        <Label
+            FontFamily="{StaticResource BoldFont}"
+            FontSize="14"
+            HorizontalOptions="FillAndExpand"
+            Text="36."
+            TextColor="{Binding Color, Converter={StaticResource colorConverter}}"
+            VerticalOptions="Center" >
+            
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="{Binding LessonNumber}"/>
+                        <Span Text="."/>
+                    </FormattedString>
+                </Label.FormattedText>
+
+        </Label>
 
 
-            <Label
-                FontFamily="{StaticResource SemiBoldFont}"
-                FontSize="10"
-                HorizontalOptions="FillAndExpand"
-                Text="1 h 20 min"
-                TextColor="{StaticResource SecondaryText}"
-                VerticalOptions="Center" />
+        <Label
+            FontFamily="{StaticResource SemiBoldFont}"
+            HorizontalOptions="Start"
+            FontSize="14"
+            MaxLines="2"
+            LineBreakMode="HeadTruncation"
+            WidthRequest="100"
+            HeightRequest="40"
+            Text="{Binding LessonTitle}"
+            TextColor="{StaticResource PrimaryText}"
+            VerticalOptions="Center" />
 
 
-            <Label
-                FontSize="40"
-                HorizontalOptions="End"
-                Text="⟶"
-                TextColor="{StaticResource Course1}"
-                VerticalOptions="Center" />
+        <Label
+            FontFamily="{StaticResource SemiBoldFont}"
+            FontSize="10"
+            Margin="0,2,0,0"
+            HorizontalOptions="FillAndExpand"
+            Text="1 h 20 min"
+            TextColor="{StaticResource SecondaryText}"
+            VerticalOptions="Center" />
 
 
-        </StackLayout>
+    </StackLayout>
 
-    </pancake:PancakeView>
+</pancake:PancakeView>
 
+    
 
-</ContentView>
+        <Label
+            FontSize="40"
+            HorizontalOptions="End"
+            Text="⟶"
+            TextColor="{Binding Color, Converter={StaticResource colorConverter}}"
+            Margin="20,6"
+            VerticalOptions="End" />
+
+</Grid>

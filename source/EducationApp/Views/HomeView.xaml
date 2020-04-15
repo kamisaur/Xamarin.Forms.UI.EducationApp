@@ -31,7 +31,7 @@
 
 
         <Style x:Key="TitleLabel" TargetType="Label">
-            <Setter Property="Margin" Value="38,34,0,0" />
+            <Setter Property="Margin" Value="38,0,0,0" />
             <Setter Property="FontFamily" Value="{StaticResource BoldFont}" />
             <Setter Property="FontSize" Value="35" />
         </Style>
@@ -59,7 +59,7 @@
 
         <ScrollView Grid.Row="0">
 
-            <StackLayout>
+            <StackLayout Spacing="26">
 
                 <!--#region User Info-->
                 <StackLayout
@@ -124,12 +124,26 @@
 
 
                 <CollectionView
-                    ItemsSource="{StaticResource courses}"
+                    ItemsSource="{Binding Courses}"
                     ItemTemplate="{StaticResource sourceTemplate}"
-                    HeightRequest="300"
+                    HeightRequest="250"
                     HorizontalScrollBarVisibility="Never">
+
+                    <CollectionView.Header>
+                        <Grid WidthRequest="38" />
+                    </CollectionView.Header>
+
+                    <CollectionView.Footer>
+                        <Grid WidthRequest="38" />
+                    </CollectionView.Footer>
+
+
                     <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Horizontal" Span="2" />
+                        <GridItemsLayout
+                            Orientation="Horizontal"
+                            Span="2"
+                            VerticalItemSpacing="20"
+                            HorizontalItemSpacing="38" />
                     </CollectionView.ItemsLayout>
                 </CollectionView>
 
@@ -138,24 +152,39 @@
 
 
                 <CollectionView
-                    ItemsSource="{StaticResource courses}"
+                    ItemsSource="{Binding TodaysLessons}"
                     ItemTemplate="{StaticResource lessonTemplate}"
-                    HeightRequest="300"
+                    HeightRequest="134"
                     HorizontalScrollBarVisibility="Never">
+
+                    <CollectionView.Header>
+                        <Grid WidthRequest="38" />
+                    </CollectionView.Header>
+
+                    <CollectionView.Footer>
+                        <Grid WidthRequest="38" />
+                    </CollectionView.Footer>
+
                     <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Horizontal" Span="1" />
+                        <GridItemsLayout
+                            Orientation="Horizontal"
+                            Span="1"
+                            VerticalItemSpacing="10"
+                            HorizontalItemSpacing="38" />
                     </CollectionView.ItemsLayout>
-
-
                 </CollectionView>
 
+
+
+                <!--<BoxView BackgroundColor="Green"
+                         HeightRequest="124"/>-->
 
             </StackLayout>
 
         </ScrollView>
 
 
-        
+
         <pancake:PancakeView
             VerticalOptions="End"
             HeightRequest="124"
@@ -163,9 +192,7 @@
             CornerRadius="56,56,0,0" />
 
 
-        <Grid VerticalOptions="End"
-            HeightRequest="124"
-              >
+        <Grid VerticalOptions="End" HeightRequest="124">
 
 
             <Grid.ColumnDefinitions>
@@ -185,8 +212,8 @@
 
             <Image
                 Grid.Column="0"
-                Source="home"
                 Margin="20,0,0,0"
+                Source="home"
                 Style="{StaticResource NavbarIconStyle}" />
 
 
@@ -228,7 +255,7 @@
             </Grid>
 
 
-            
+
             <Image
                 Grid.Column="3"
                 Source="home"
@@ -237,8 +264,8 @@
 
             <Image
                 Grid.Column="4"
-                Source="search"
                 Margin="0,0,20,0"
+                Source="search"
                 Style="{StaticResource NavbarIconStyle}" />
 
 
