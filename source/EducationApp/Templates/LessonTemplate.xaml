@@ -7,8 +7,10 @@
     HeightRequest="132"
     xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:converters="clr-namespace:EducationApp.Converters">
-        <Grid.Resources>
+
+    <Grid.Resources>
             <converters:AppColorNameToColorConverter x:Key="colorConverter" />
+            <converters:TimeSpanConverter x:Key="timeConverter"/>
     </Grid.Resources>
 
 <pancake:PancakeView
@@ -58,11 +60,14 @@
             FontSize="10"
             Margin="0,2,0,0"
             HorizontalOptions="FillAndExpand"
-            Text="1 h 20 min"
+            Text="{Binding LessonDuration, Converter={StaticResource timeConverter}}"
             TextColor="{StaticResource SecondaryText}"
-            VerticalOptions="Center" />
+            VerticalOptions="Center">
 
+        </Label>
+            <!--Text="1 h 20 min"-->
 
+        
     </StackLayout>
 
 </pancake:PancakeView>
