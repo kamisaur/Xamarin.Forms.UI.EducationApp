@@ -9,7 +9,7 @@ namespace EducationApp.ViewModels
     {
         public UserModel User { get; set; }
 
-        public ObservableCollection<CourseModel> Courses { get; set; } 
+        public ObservableCollection<CourseItemViewModel> Courses { get; set; } 
 
         public ObservableCollection<LessonModel> TodaysLessons { get; set; } 
 

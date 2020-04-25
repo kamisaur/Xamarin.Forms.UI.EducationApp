@@ -2,23 +2,39 @@
 <Grid
     x:Class="EducationApp.Templates.CourseTemplate"
     xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:converters="clr-namespace:EducationApp.Converters"
+    xmlns:touch="clr-namespace:TouchEffect;assembly=TouchEffect"
     mc:Ignorable="d">
-        <Grid.Resources>
-            <converters:AppColorNameToColorConverter x:Key="colorConverter" />
+    <Grid.Resources>
+        <converters:AppColorNameToColorConverter x:Key="colorConverter" />
     </Grid.Resources>
 
     <Frame
+        touch:TouchEff.PressedAnimationDuration="200"
+        touch:TouchEff.RegularAnimationDuration="200"
+        touch:TouchEff.PressedOpacity="0.1"
+        touch:TouchEff.RippleCount="1"
+        d:BackgroundColor="{StaticResource Course1}"
         HeightRequest="108"
         WidthRequest="300"
-        d:BackgroundColor="{StaticResource Course1}"
         BackgroundColor="{Binding PrimaryColor, Converter={StaticResource colorConverter}}"
         CornerRadius="29"
         HasShadow="False"
         VerticalOptions="Start">
+
+        <Frame.Effects>
+            <touch:TouchEff Completed="TouchEff_Completed" />
+        </Frame.Effects>
+
+
+        <Frame.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding ShowCourseOverviewCommand}"/>
+        </Frame.GestureRecognizers>
+
+
         <StackLayout Spacing="8">
 
             <StackLayout Orientation="Horizontal" Spacing="8">
@@ -43,31 +59,32 @@
             </StackLayout>
 
             <Label
+                d:Text="35/210 lessons"
                 FontFamily="{StaticResource RegularFont}"
                 FontSize="13"
-                d:Text="35/210 lessons"
-                TextColor="{StaticResource TextOnCourse}" >
+                TextColor="{StaticResource TextOnCourse}">
 
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span Text="{Binding CompletedLessons}"/>
-                        <Span Text=" / "/>
-                        <Span Text="{Binding TotalLessons}"/>
-                        <Span Text=" lessons"/>
+                        <Span Text="{Binding CompletedLessons}" />
+                        <Span Text=" / " />
+                        <Span Text="{Binding TotalLessons}" />
+                        <Span Text=" lessons" />
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
 
             <ProgressBar
+                d:ProgressColor="{StaticResource Progress1}"
                 BackgroundColor="{StaticResource TextOnCourse}"
                 HeightRequest="5"
                 Progress="{Binding Progress}"
                 WidthRequest="176"
                 HorizontalOptions="Start"
-                d:ProgressColor="{StaticResource Progress1}"
                 ProgressColor="{Binding SecondaryColor, Converter={StaticResource colorConverter}}" />
 
         </StackLayout>
+
     </Frame>
 
 

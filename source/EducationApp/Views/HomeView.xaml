@@ -8,27 +8,12 @@
     xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:templates="clr-namespace:EducationApp.Templates"
     xmlns:controls="clr-namespace:EducationApp.Controls"
-    mc:Ignorable="d">
+    xmlns:touch="clr-namespace:TouchEffect;assembly=TouchEffect"
+    mc:Ignorable="d"
+    NavigationPage.HasNavigationBar="false">
 
 
     <ContentPage.Resources>
-
-        <x:Array x:Key="stars" Type="{x:Type x:Boolean}">
-            <x:Boolean>true</x:Boolean>
-            <x:Boolean>true</x:Boolean>
-            <x:Boolean>true</x:Boolean>
-            <x:Boolean>false</x:Boolean>
-            <x:Boolean>false</x:Boolean>
-        </x:Array>
-
-
-        <x:Array x:Key="courses" Type="{x:Type x:String}">
-            <x:String>English Vocabulary</x:String>
-            <x:String>Python</x:String>
-            <x:String>Russian</x:String>
-            <x:String>Toilet Paper</x:String>
-        </x:Array>
-
 
         <Style x:Key="TitleLabel" TargetType="Label">
             <Setter Property="Margin" Value="38,0,0,0" />
@@ -41,7 +26,7 @@
         </DataTemplate>
 
         <DataTemplate x:Key="lessonTemplate">
-            <templates:LessonTemplate />
+            <templates:LessonTemplate/>
         </DataTemplate>
 
 
@@ -176,13 +161,9 @@
 
 
 
-                <!--<BoxView BackgroundColor="Green"
-                         HeightRequest="124"/>-->
-
             </StackLayout>
 
         </ScrollView>
-
 
 
         <pancake:PancakeView
@@ -193,6 +174,8 @@
 
 
         <Grid VerticalOptions="End" HeightRequest="124">
+
+
 
 
             <Grid.ColumnDefinitions>
@@ -226,10 +209,17 @@
 
             <Grid
                 Grid.Column="2"
+                touch:TouchEff.PressedAnimationDuration="200"
+                touch:TouchEff.RegularAnimationDuration="200"
+                touch:TouchEff.PressedOpacity="0.1"
+                touch:TouchEff.RippleCount="-1"
                 TranslationY="-39"
                 VerticalOptions="Start"
                 HorizontalOptions="Center">
 
+                <Grid.Effects>
+                    <touch:TouchEff Completed="TouchEff_Completed" />
+                </Grid.Effects>
                 <pancake:PancakeView
                     BackgroundColor="{StaticResource NavBarAddIcon}"
                     CornerRadius="30"

@@ -11,7 +11,7 @@ namespace EducationApp
         {
             InitializeComponent();
 
-            MainPage = new HomeView();
+            MainPage = new NavigationPage(new HomeView());
         }
 
         protected override void OnStart()

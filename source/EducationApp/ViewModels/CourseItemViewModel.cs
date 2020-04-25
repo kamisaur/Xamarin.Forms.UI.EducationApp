@@ -1,11 +1,18 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using EducationApp.Services;
+using Xamarin.Forms;
 
-namespace EducationApp.Models
+namespace EducationApp.ViewModels
 {
-    public class CourseModel : INotifyPropertyChanged
+    public class CourseItemViewModel : INotifyPropertyChanged
     {
+        private INavigationService _navigation;
+
+
         public string CourseName { get; set; }
 
         private int _totalLessons;
@@ -61,6 +68,20 @@ namespace EducationApp.Models
 
             double val = Convert.ToDouble(CompletedLessons) / Convert.ToDouble(TotalLessons);
             return val;
+        }
+
+
+        public CourseItemViewModel(INavigationService navigation)
+        {
+            _navigation = navigation;
+            ShowCourseOverviewCommand = new Command(async () => await ShowCourseOverviewAsync());
+        }
+
+
+        public ICommand ShowCourseOverviewCommand { get; private set; }
+        private async Task ShowCourseOverviewAsync()
+        {
+            await _navigation.NavigateToOverviewPageAsync();
         }
 
 

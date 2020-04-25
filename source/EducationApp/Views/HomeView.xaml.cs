@@ -12,5 +12,9 @@ namespace EducationApp.Views
             InitializeComponent();
             this.BindingContext = new HomeViewModel();
         }
+
+        void TouchEff_Completed(Xamarin.Forms.VisualElement sender, TouchEffect.EventArgs.TouchCompletedEventArgs args)
+        {
+        }
     }
 }

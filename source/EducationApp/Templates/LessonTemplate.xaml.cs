@@ -10,5 +10,10 @@ namespace EducationApp.Templates
         {
             InitializeComponent();
         }
+
+        void TouchEff_Completed(Xamarin.Forms.VisualElement sender, TouchEffect.EventArgs.TouchCompletedEventArgs args)
+        {
+            // needed for tap animation
+        }
     }
 }

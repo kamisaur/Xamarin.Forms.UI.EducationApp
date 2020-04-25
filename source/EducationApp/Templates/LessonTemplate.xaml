@@ -6,6 +6,7 @@
     WidthRequest="154"
     HeightRequest="132"
     xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:touch="clr-namespace:TouchEffect;assembly=TouchEffect"
     xmlns:converters="clr-namespace:EducationApp.Converters">
 
     <Grid.Resources>
@@ -19,7 +20,16 @@
     BorderThickness="4"
     CornerRadius="33"
     HasShadow="False"
-    Margin="2">
+    Margin="2"
+        touch:TouchEff.PressedAnimationDuration="200"
+        touch:TouchEff.RegularAnimationDuration="200"
+        touch:TouchEff.PressedOpacity="0.1"
+        touch:TouchEff.RippleCount="1">
+
+        <pancake:PancakeView.Effects>
+            <touch:TouchEff Completed="TouchEff_Completed" />
+        </pancake:PancakeView.Effects>
+
 
     <StackLayout Spacing="2" >
 

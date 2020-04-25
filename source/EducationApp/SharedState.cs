@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using EducationApp.Models;
+using EducationApp.Services;
+using EducationApp.ViewModels;
+
 
 namespace EducationApp
 {
@@ -48,9 +51,11 @@ namespace EducationApp
         public static UserModel GetUser() => _user;
 
 
-        private static ObservableCollection<CourseModel> _courses = new ObservableCollection<CourseModel>
+        static NavigationService _navigation = new NavigationService();
+
+        private static ObservableCollection<CourseItemViewModel> _courses = new ObservableCollection<CourseItemViewModel>
         {
-            new CourseModel
+            new CourseItemViewModel(_navigation)
             {
                 CourseName ="English Vocabulary (Full)",
                 CompletedLessons = 35,
@@ -59,7 +64,7 @@ namespace EducationApp
                 PrimaryColor = "Primary1",
                 SecondaryColor = "Secondary1",
             },
-            new CourseModel
+            new CourseItemViewModel(_navigation)
             {
                 CourseName ="Python",
                 CompletedLessons = 472,
@@ -68,7 +73,7 @@ namespace EducationApp
                 PrimaryColor = "Primary2",
                 SecondaryColor = "Secondary2",
             },
-            new CourseModel
+            new CourseItemViewModel(_navigation)
             {
                 CourseName ="Russian",
                 CompletedLessons = 21,
@@ -78,7 +83,7 @@ namespace EducationApp
                 SecondaryColor = "Secondary3",
             }
         };
-        public static ObservableCollection<CourseModel> GetCourses() => _courses;
+        public static ObservableCollection<CourseItemViewModel> GetCourses() => _courses;
 
 
         private static ObservableCollection<LessonModel> _todayLessons = new ObservableCollection<LessonModel>
