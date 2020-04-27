@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Grid
+    x:Class="EducationApp.Templates.LessonsTabTemplate"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:converters="clr-namespace:EducationApp.Converters">
+
+
+    <Grid.Resources>
+        <converters:TimeSpanConverter x:Key="timeConverter" />
+        <converters:AppColorNameToColorConverter x:Key="colorConverter" />
+    </Grid.Resources>
+
+
+    <CollectionView
+        x:Name="collection"
+        HorizontalScrollBarVisibility="Never"
+        ItemsSource="{Binding Lessons}">
+
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Grid Padding="38,0,38,25">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+
+                    <BoxView
+                        Margin="0,0,17,0"
+                        HeightRequest="22"
+                        WidthRequest="22"
+                        BackgroundColor="{Binding Color, Converter={StaticResource colorConverter}}"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        CornerRadius="11" />
+
+
+
+
+                    <pancake:PancakeView
+                        Grid.Column="1"
+                        Margin="2"
+                        Padding="0"
+                        BorderColor="{Binding Color, Converter={StaticResource colorConverter}}"
+                        BorderThickness="4"
+                        CornerRadius="33"
+                        HasShadow="False">
+
+
+                        <StackLayout
+                            Margin="22,18"
+                            Orientation="Horizontal"
+                            Spacing="20"
+                            VerticalOptions="Center">
+
+                            <StackLayout HorizontalOptions="FillAndExpand" Spacing="4">
+
+                                <Label
+                                    FontSize="14"
+                                    FontFamily="{StaticResource BoldFont}"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="Center">
+
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding LessonNumber}" TextColor="{Binding Color, Converter={StaticResource colorConverter}}" />
+                                            <Span Text=". " TextColor="{Binding Color, Converter={StaticResource colorConverter}}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+
+                                </Label>
+
+                                <Label
+                                    FontFamily="{StaticResource SemiBoldFont}"
+                                    FontSize="14"
+                                    HorizontalOptions="FillAndExpand"
+                                    Text="{Binding LessonTitle}"
+                                    TextColor="{StaticResource PrimaryText}"
+                                    VerticalOptions="Center" />
+
+
+
+
+                                <Label
+                                    Margin="0,2,0,0"
+                                    FontFamily="{StaticResource SemiBoldFont}"
+                                    FontSize="10"
+                                    HorizontalOptions="FillAndExpand"
+                                    Text="{Binding LessonDuration, Converter={StaticResource timeConverter}}"
+                                    TextColor="{StaticResource SecondaryText}"
+                                    VerticalOptions="Center" />
+
+
+                            </StackLayout>
+
+
+                            <Label
+                                FontSize="20"
+                                HorizontalOptions="End"
+                                Text="→"
+                                TextColor="{Binding Color, Converter={StaticResource colorConverter}}"
+                                VerticalOptions="Center" />
+
+
+                        </StackLayout>
+
+                    </pancake:PancakeView>
+
+                </Grid>
+
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+
+    </CollectionView>
+
+</Grid>

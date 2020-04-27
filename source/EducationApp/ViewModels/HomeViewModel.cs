@@ -18,18 +18,6 @@ namespace EducationApp.ViewModels
             User = SharedState.GetUser();
             Courses = SharedState.GetCourses();
             TodaysLessons = SharedState.GetTodaysLessons();
-
-            //TodaysLessons = new ObservableCollection<LessonModel>
-            //{
-            //    new LessonModel
-            //    {
-            //        LessonNumber = 36,
-            //        LessonTitle = "The Present Perfect",
-            //        LessonDuration = TimeSpan.FromMinutes(80)
-            //    }
-            //};
-
-
         }
     }
 }

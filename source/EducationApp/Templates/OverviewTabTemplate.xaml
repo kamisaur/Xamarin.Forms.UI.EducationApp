@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Grid
+    x:Class="EducationApp.Templates.OverviewTabTemplate"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:converters="clr-namespace:EducationApp.Converters"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    
+
+    <Grid.Resources>
+        <converters:AppColorNameToColorConverter x:Key="colorConverter" />
+    </Grid.Resources>
+
+    
+    <pancake:PancakeView
+        Margin="2"
+        Padding="16"
+        BorderColor="{Binding PrimaryColor, Converter={StaticResource colorConverter}}"
+        BorderThickness="4"
+        CornerRadius="33"
+        HasShadow="False"/>
+
+
+    <StackLayout Padding="38,28" Spacing="18">
+
+        <Label
+            Text="About"
+            TextColor="{StaticResource PrimaryText}"
+            FontFamily="{StaticResource BoldFont}"
+            FontSize="24"/>
+
+        <Label
+            Text="{Binding OverviewSummary}"
+            TextColor="{StaticResource PrimaryText}"
+            FontFamily="{StaticResource RegularFont}"
+            FontSize="16" />
+
+    </StackLayout>
+
+
+</Grid>

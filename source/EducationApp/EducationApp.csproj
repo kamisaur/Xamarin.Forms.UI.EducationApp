@@ -24,5 +24,6 @@
     <Folder Include="Controls\" />
     <Folder Include="Converters\" />
     <Folder Include="Services\" />
+    <Folder Include="TemplateSelectors\" />
   </ItemGroup>
 </Project>

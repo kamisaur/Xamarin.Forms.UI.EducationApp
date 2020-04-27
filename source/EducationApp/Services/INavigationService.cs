@@ -5,7 +5,7 @@ namespace EducationApp.Services
 {
     public interface INavigationService
     {
-        Task NavigateToOverviewPageAsync();
+        Task NavigateToOverviewPageAsync(string courseName);
         Task NavigateBackAsync();
     }
 }

@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Grid
+    x:Class="EducationApp.Templates.SyllabusTabTemplate"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:EducationApp.Converters">
+
+    <Grid.Resources>
+        <converters:TimeSpanConverter x:Key="timeConverter" />
+        <converters:AppColorNameToColorConverter x:Key="colorConverter" />
+    </Grid.Resources>
+
+
+    <CollectionView
+        x:Name="collection"
+        HorizontalScrollBarVisibility="Never"
+        ItemsSource="{Binding SyllabusCollection}">
+
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Grid Padding="38,0,38,25">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+
+                    <BoxView
+                        Margin="0,0,17,0"
+                        HeightRequest="22"
+                        WidthRequest="22"
+                        BackgroundColor="{Binding PrimaryColor, Converter={StaticResource colorConverter}}"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        CornerRadius="11" />
+
+
+                    <Frame
+                        Grid.Column="1"
+                        Padding="0"
+                        VerticalOptions="FillAndExpand"
+                        CornerRadius="27"
+                        BackgroundColor="{StaticResource AvatarBackground}"
+                        HasShadow="False">
+
+
+                        <StackLayout
+                            Margin="22,18"
+                            Orientation="Horizontal"
+                            Spacing="20"
+                            VerticalOptions="Center">
+
+                            <StackLayout HorizontalOptions="FillAndExpand">
+
+                                <Label
+                                    FontFamily="{StaticResource SemiBoldFont}"
+                                    FontSize="15"
+                                    HorizontalOptions="FillAndExpand"
+                                    TextColor="{Binding PrimaryColor, Converter={StaticResource colorConverter}}"
+                                    VerticalOptions="Center">
+
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding SyllabusNumber}" />
+                                            <Span Text=". " />
+                                            <Span Text="{Binding SyllabusTitle}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+
+                                </Label>
+
+
+
+                                <Label
+                                    Margin="0,2,0,0"
+                                    FontFamily="{StaticResource SemiBoldFont}"
+                                    FontSize="10"
+                                    HorizontalOptions="FillAndExpand"
+                                    Text="{Binding SyllabusDuration, Converter={StaticResource timeConverter}}"
+                                    TextColor="{StaticResource SecondaryText}"
+                                    VerticalOptions="Center" />
+
+
+                            </StackLayout>
+
+
+                            <Label
+                                FontSize="20"
+                                HorizontalOptions="End"
+                                Text="→"
+                                TextColor="{StaticResource PrimaryText}"
+                                VerticalOptions="Center" />
+
+
+                        </StackLayout>
+
+                    </Frame>
+
+                </Grid>
+
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+
+    </CollectionView>
+
+
+</Grid>

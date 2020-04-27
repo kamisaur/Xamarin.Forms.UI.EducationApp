@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Grid
+    x:Class="EducationApp.Templates.CommentsTabTemplate"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+
+    <CollectionView
+        x:Name="collection"
+        HorizontalScrollBarVisibility="Never"
+        ItemsSource="{Binding Comments}">
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+
+                <Grid Padding="38,0,38,52">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+
+                    <Grid
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Margin="0,0,10,0"
+                        HeightRequest="40"
+                        WidthRequest="40"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+
+                        <BoxView BackgroundColor="{StaticResource AvatarBackground}" CornerRadius="14" />
+
+                        <Image
+                            Margin="6"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Source="avatar" />
+                    </Grid>
+
+
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        VerticalOptions="Center"
+                        Text="{Binding CommentorName}"
+                        TextColor="{StaticResource PrimaryText}"
+                        FontFamily="{StaticResource BoldFont}" />
+
+
+
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Text="{Binding CommentText}"
+                        FontFamily="{StaticResource RegularFont}" />
+
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        VerticalOptions="Center"
+                        FontSize="14"
+                        TextColor="{StaticResource SecondaryText}"
+                        FontFamily="{StaticResource RegularFont}" 
+                        Text="{Binding CommentDate, StringFormat='{0:MMMM dd}'}" />
+
+
+
+                </Grid>
+
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+
+
+    </CollectionView>
+
+</Grid>

@@ -8,11 +8,11 @@ namespace EducationApp.Services
 {
     public class NavigationService : INavigationService
     {
-        public async Task NavigateToOverviewPageAsync()
+        public async Task NavigateToOverviewPageAsync(string courseName)
         {
             var currentPage = GetCurrentPage();
 
-            await currentPage.Navigation.PushAsync(new CourseOverviewView());
+            await currentPage.Navigation.PushAsync(new CourseOverviewView(courseName));
         }
 
         public async Task NavigateBackAsync()

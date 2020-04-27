@@ -3,13 +3,134 @@
     x:Class="EducationApp.Views.CourseOverviewView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:templates="clr-namespace:EducationApp.Templates"
+    xmlns:temlateSelector="clr-namespace:EducationApp.TemplateSelectors"
+    xmlns:touch="clr-namespace:TouchEffect;assembly=TouchEffect"
     NavigationPage.HasNavigationBar="false">
 
+    <ContentPage.Resources>
+
+        <DataTemplate x:Key="courseDetailedTemplate">
+            <templates:CourseDetailedTemplate />
+        </DataTemplate>
+
+        <DataTemplate x:Key="syllabusTabTemplate">
+            <templates:SyllabusTabTemplate />
+        </DataTemplate>
+
+        <DataTemplate x:Key="overviewTabTemplate">
+            <templates:OverviewTabTemplate />
+        </DataTemplate>
+
+        <DataTemplate x:Key="lessonsTabTemplate">
+            <templates:LessonsTabTemplate />
+        </DataTemplate>
+
+        <DataTemplate x:Key="commentsTabTemplate">
+            <templates:CommentsTabTemplate />
+        </DataTemplate>
+
+        <temlateSelector:TabTemplateSelector
+            x:Key="tabSelector"
+            OverviewTabDataTemplate="{StaticResource overviewTabTemplate}"
+            SyllabusTabDataTemplate="{StaticResource syllabusTabTemplate}"
+            LessonsTabDataTemplate="{StaticResource lessonsTabTemplate}"
+            CommentsTabDataTemplate="{StaticResource commentsTabTemplate}"/>
+
+
+        <x:Array x:Key="tabs" Type="{x:Type x:String}">
+            <x:String>Overview</x:String>
+            <x:String>Syllabus</x:String>
+            <x:String>Lessons</x:String>
+            <x:String>Comments</x:String>
+        </x:Array>
+
+
+    </ContentPage.Resources>
+
+
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-            
-            <Label Text="this is overview" />
-            <Button Text="back" Clicked="Button_Clicked"/>
+
+        <StackLayout Margin="{OnPlatform iOS='0,30,0,0', Android='0'}" Spacing="28">
+
+            <StackLayout Margin="38,38,38,0" Orientation="Horizontal">
+
+                <Label
+                    touch:TouchEff.PressedAnimationDuration="200"
+                    touch:TouchEff.RegularAnimationDuration="200"
+                    touch:TouchEff.PressedOpacity="0.1"
+                    touch:TouchEff.RippleCount="1"
+                    FontSize="40"
+                    Text="⟵"
+                    TranslationY="-10"
+                    HorizontalOptions="FillAndExpand"
+                    TextColor="{StaticResource PrimaryText}">
+
+
+                    <Label.Effects>
+                        <touch:TouchEff Completed="TouchEff_Completed" />
+                    </Label.Effects>
+
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Back_Tapped" />
+                    </Label.GestureRecognizers>
+
+                </Label>
+
+
+
+
+                <Image
+                    BackgroundColor="Black"
+                    HeightRequest="22"
+                    WidthRequest="22"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+
+
+            </StackLayout>
+
+
+            <CarouselView
+                ItemsSource="{Binding Courses}"
+                CurrentItem="{Binding CurentCourseItem}"
+                HorizontalScrollBarVisibility="Never"
+                VerticalOptions="FillAndExpand"
+                HeightRequest="245"
+                PeekAreaInsets="38"
+                ItemTemplate="{StaticResource courseDetailedTemplate}" />
+
+
+            <StackLayout
+                Margin="38,26,38,0"
+                BindableLayout.ItemsSource="{StaticResource tabs}"
+                Orientation="Horizontal">
+
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+
+                        <Label
+                            Text="{Binding .}"
+                            FontFamily="{StaticResource SemiBoldFont}"
+                            FontSize="14"
+                            HorizontalOptions="CenterAndExpand"
+                            TextColor="{StaticResource PrimaryText}" />
+
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+
+            </StackLayout>
+
+
+
+            <CarouselView
+                ItemsSource="{Binding Tabs}"
+                VerticalOptions="End"
+                HeightRequest="400"
+                HorizontalScrollBarVisibility="Never"
+                ItemTemplate="{StaticResource tabSelector}" />
+
+
 
         </StackLayout>
 

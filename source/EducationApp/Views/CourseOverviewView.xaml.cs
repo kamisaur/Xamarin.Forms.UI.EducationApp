@@ -1,20 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using EducationApp.ViewModels;
 using Xamarin.Forms;
 
 namespace EducationApp.Views
 {
     public partial class CourseOverviewView : ContentPage
     {
-        public CourseOverviewView()
+        public CourseOverviewView(string courseName)
         {
             InitializeComponent();
+            this.BindingContext = new CourseOverviewViewModel(courseName);
         }
 
-        void Button_Clicked(System.Object sender, System.EventArgs e)
+        void Back_Tapped(System.Object sender, System.EventArgs e)
         {
             Navigation.PopAsync();
+        }
+
+        void TouchEff_Completed(Xamarin.Forms.VisualElement sender, TouchEffect.EventArgs.TouchCompletedEventArgs args)
+        {
         }
     }
 }

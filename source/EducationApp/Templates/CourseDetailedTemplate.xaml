@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Grid
+    x:Class="EducationApp.Templates.CourseDetailedTemplate"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:EducationApp.Converters">
+
+
+    <Grid.Resources>
+        <converters:AppColorNameToColorConverter x:Key="colorConverter" />
+    </Grid.Resources>
+
+    <Frame
+        Margin="0,0,19,0"
+        Padding="26,38"
+        CornerRadius="37"
+        HasShadow="False"
+        WidthRequest="338"
+        BackgroundColor="{Binding PrimaryColor, Converter={StaticResource colorConverter}}">
+
+
+
+        <StackLayout>
+
+            <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" Spacing="12">
+
+
+                <Label
+                    FontFamily="{StaticResource BoldFont}"
+                    FontSize="35"
+                    MaxLines="2"
+                    LineBreakMode="TailTruncation"
+                    HorizontalOptions="FillAndExpand"
+                    Text="{Binding CourseName}"
+                    TextColor="{StaticResource TextOnCourse}" />
+
+
+                <Image
+                    HeightRequest="88"
+                    WidthRequest="88"
+                    HorizontalOptions="End"
+                    VerticalOptions="Start"
+                    BackgroundColor="Black" />
+
+            </StackLayout>
+
+
+
+            <Label
+                FontFamily="{StaticResource RegularFont}"
+                FontSize="13"
+                TextColor="{StaticResource TextOnCourse}">
+
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="{Binding CompletedLessons}" />
+                        <Span Text=" / " />
+                        <Span Text="{Binding TotalLessons}" />
+                        <Span Text=" lessons" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+
+            <ProgressBar
+                BackgroundColor="{StaticResource TextOnCourse}"
+                HeightRequest="5"
+                Progress="{Binding Progress}"
+                ProgressColor="{Binding SecondaryColor, Converter={StaticResource colorConverter}}" />
+
+        </StackLayout>
+
+
+    </Frame>
+
+</Grid>
