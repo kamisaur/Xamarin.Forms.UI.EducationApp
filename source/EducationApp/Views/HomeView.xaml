@@ -51,14 +51,14 @@
 
             <StackLayout Spacing="26">
 
-                <!--#region User Info-->
+                <!--User Info-->
                 <StackLayout
                     Padding="{OnPlatform iOS='38,38,0,0',
                                          Android='38,30,0,0'}"
                     Orientation="Horizontal"
                     Spacing="21">
 
-                    <!--#region User Image-->
+                    <!--User Image-->
                     <Grid HeightRequest="65" WidthRequest="65">
 
                         <BoxView BackgroundColor="{StaticResource AvatarBackground}" CornerRadius="14" />
@@ -69,11 +69,10 @@
                             Source="avatar" />
 
                     </Grid>
-                    <!--#endregion-->
 
                     <StackLayout VerticalOptions="Center">
 
-                        <!--#region Name/Rating-->
+                        <!--Name/Rating-->
                         <StackLayout Orientation="Horizontal" Spacing="16">
 
                             <Label
@@ -85,10 +84,9 @@
                             <controls:RatingControl Rating="3" MaxRating="5" />
 
                         </StackLayout>
-                        <!--#endregion-->
 
 
-                        <!--#region Age/Position-->
+                        <!--Age/Position-->
                         <Label
                             d:Text="22 y.o., Frontend Developer"
                             FontFamily="{StaticResource RegularFont}"
@@ -102,13 +100,12 @@
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
-                        <!--#endregion-->
+
 
                     </StackLayout>
 
 
                 </StackLayout>
-                <!--#endregion-->
 
 
                 <Label Style="{StaticResource TitleLabel}" Text="My courses" />

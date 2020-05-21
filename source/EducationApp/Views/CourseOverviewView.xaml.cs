@@ -23,6 +23,5 @@ namespace EducationApp.Views
         {
         }
 
-
     }
 }

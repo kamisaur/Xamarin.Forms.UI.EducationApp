@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using EducationApp.Models;
+using Xamarin.Forms;
 
 namespace EducationApp.ViewModels
 {
@@ -50,8 +51,12 @@ namespace EducationApp.ViewModels
         {
             Courses = SharedState.GetCourses();
             CurentCourseItem = Courses.Where(x => x.CourseName == courseName).First();
-        }
 
+            MessagingCenter.Subscribe<TabMessage>(this, "tab_clicked", (tab) =>
+            {
+                CurrentTabItem = tab.Tab;
+            });
+        }
 
 
         private void UpdateTabs()

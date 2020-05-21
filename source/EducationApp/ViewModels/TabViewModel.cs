@@ -2,6 +2,9 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
+using EducationApp.Models;
+using Xamarin.Forms;
 
 namespace EducationApp.ViewModels
 {
@@ -20,6 +23,20 @@ namespace EducationApp.ViewModels
                 NotifyPropertyChanged();
             }
         }
+
+
+        public ICommand SelectTabCommand { get; private set; }
+        private void SelectTab()
+        {
+            MessagingCenter.Send(new TabMessage(this), "tab_clicked");
+        }
+
+        public TabViewModel()
+        {
+            SelectTabCommand = new Command(() => SelectTab());
+        }
+
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
