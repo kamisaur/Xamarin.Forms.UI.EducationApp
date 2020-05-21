@@ -1,4 +1,6 @@
 ﻿using System;
+using EducationApp.Helpers;
+using EducationApp.Models;
 using EducationApp.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -9,6 +11,13 @@ namespace EducationApp
     {
         public App()
         {
+
+            Device.SetFlags(new[] {
+                "CarouselView_Experimental",
+                "IndicatorView_Experimental"
+            });
+
+
             InitializeComponent();
 
             MainPage = new NavigationPage(new HomeView());
@@ -17,6 +26,7 @@ namespace EducationApp
 
         protected override void OnStart()
         {
+            ThemeHelper.ChangeTheme(Theme.Light, true);
         }
 
         protected override void OnSleep()
@@ -25,6 +35,7 @@ namespace EducationApp
 
         protected override void OnResume()
         {
+            ThemeHelper.ChangeTheme(Theme.Light, true);
         }
     }
 }

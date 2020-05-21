@@ -7,6 +7,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using TouchEffect.Android;
+using Xamarin.Forms;
 
 namespace EducationApp.Droid
 {

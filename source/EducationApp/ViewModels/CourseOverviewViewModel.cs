@@ -32,6 +32,18 @@ namespace EducationApp.ViewModels
             }
         }
 
+        
+        private TabViewModel _currentTabItem;
+        public TabViewModel CurrentTabItem
+        {
+            get => _currentTabItem;
+            set
+            {
+                _currentTabItem = value;
+                NotifyPropertyChanged();
+                UpdateSelectedTabsIndicators();
+            }
+        }
 
 
         public CourseOverviewViewModel(string courseName)
@@ -44,31 +56,32 @@ namespace EducationApp.ViewModels
 
         private void UpdateTabs()
         {
-            var overview = new OverviewTabViewModel(CurentCourseItem.Summary, CurentCourseItem.PrimaryColor);
-
-            var syllabus = new SyllabusTabViewModel
-            {
-                SyllabusCollection = new ObservableCollection<SyllabusModel>(CurentCourseItem.Syllabus),
-            };
-
-            var lessons = new LessonsTabViewModel
-            {
-                Lessons = new ObservableCollection<LessonModel>(CurentCourseItem.Lessons),
-            };
-
-            var comments = new CommentsTabViewModel
-            {
-                Comments = new ObservableCollection<CommentsModel>(CurentCourseItem.Comments),
-            };
-
-
             Tabs = new ObservableCollection<TabViewModel>
             {
-                overview,
-                syllabus,
-                lessons,
-                comments
+                new OverviewTabViewModel(CurentCourseItem.Summary, CurentCourseItem.PrimaryColor),
+                new SyllabusTabViewModel(new ObservableCollection<SyllabusModel>(CurentCourseItem.Syllabus)),
+                new LessonsTabViewModel (new ObservableCollection<LessonModel>(CurentCourseItem.Lessons)),
+                new CommentsTabViewModel(new ObservableCollection<CommentsModel>(CurentCourseItem.Comments))
             };
+
+            // when "Course" is changed, selected tab still hold value for previous course
+            // need to manually update the current tab
+            if (CurrentTabItem != null)
+                CurrentTabItem = Tabs?.Where(x => x.Title == CurrentTabItem.Title)?.First();
+
+            UpdateSelectedTabsIndicators();
+        }
+
+
+        private void UpdateSelectedTabsIndicators()
+        {
+            foreach (var t in Tabs)
+            {
+                if (t == CurrentTabItem)
+                    t.IsSelectedTab = true;
+                else
+                    t.IsSelectedTab = false;
+            }
         }
 
 

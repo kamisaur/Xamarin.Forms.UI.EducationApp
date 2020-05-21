@@ -39,8 +39,8 @@
                     HeightRequest="88"
                     WidthRequest="88"
                     HorizontalOptions="End"
-                    VerticalOptions="Start"
-                    BackgroundColor="Black" />
+                    Source="CourseImageSource"
+                    VerticalOptions="Start"/>
 
             </StackLayout>
 

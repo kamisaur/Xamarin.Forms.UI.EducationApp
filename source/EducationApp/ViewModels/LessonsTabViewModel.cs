@@ -8,9 +8,10 @@ namespace EducationApp.ViewModels
     {
         public ObservableCollection<LessonModel> Lessons { get; set; }
 
-        public LessonsTabViewModel()
+        public LessonsTabViewModel(ObservableCollection<LessonModel> lessons)
         {
             Title = "Lessons";
+            Lessons = lessons;
         }
     }
 }

@@ -8,20 +8,23 @@
     xmlns:converters="clr-namespace:EducationApp.Converters"
     xmlns:touch="clr-namespace:TouchEffect;assembly=TouchEffect"
     mc:Ignorable="d">
+
     <Grid.Resources>
         <converters:AppColorNameToColorConverter x:Key="colorConverter" />
     </Grid.Resources>
 
     <Frame
+        x:Name="contentFrame"
         touch:TouchEff.PressedAnimationDuration="200"
         touch:TouchEff.RegularAnimationDuration="200"
         touch:TouchEff.PressedOpacity="0.1"
         touch:TouchEff.RippleCount="1"
+        touch:TouchEff.Command="{Binding ShowCourseOverviewCommand}"
         d:BackgroundColor="{StaticResource Course1}"
         HeightRequest="108"
-        WidthRequest="300"
         BackgroundColor="{Binding PrimaryColor, Converter={StaticResource colorConverter}}"
         CornerRadius="29"
+        Padding="22,0"
         HasShadow="False"
         VerticalOptions="Start">
 
@@ -30,12 +33,7 @@
         </Frame.Effects>
 
 
-        <Frame.GestureRecognizers>
-            <TapGestureRecognizer Command="{Binding ShowCourseOverviewCommand}"/>
-        </Frame.GestureRecognizers>
-
-
-        <StackLayout Spacing="8">
+        <StackLayout Spacing="6" VerticalOptions="Center">
 
             <StackLayout Orientation="Horizontal" Spacing="8">
 

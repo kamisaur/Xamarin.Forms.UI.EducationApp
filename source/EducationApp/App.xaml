@@ -27,6 +27,9 @@
         </OnPlatform>
 
         <!--  Colors  -->
+        <Color x:Key="Background">#FFFFFF</Color>
+
+
         <Color x:Key="PrimaryText">#384554</Color>
         <Color x:Key="SecondaryText">#A2A9B4</Color>
         <Color x:Key="TextOnCourse">#FFFFFF</Color>

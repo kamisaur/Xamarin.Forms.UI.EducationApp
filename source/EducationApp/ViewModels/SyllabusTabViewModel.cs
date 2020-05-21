@@ -10,9 +10,10 @@ namespace EducationApp.ViewModels
     {
         public ObservableCollection<SyllabusModel> SyllabusCollection { get; set; }
 
-        public SyllabusTabViewModel()
+        public SyllabusTabViewModel(ObservableCollection<SyllabusModel> syllabusCollection)
         {
             Title = "Syllabus";
+            SyllabusCollection = syllabusCollection;
         }
 
     }

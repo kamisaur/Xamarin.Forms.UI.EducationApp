@@ -57,7 +57,7 @@
                 HorizontalOptions="Start"
                 FontSize="14"
                 MaxLines="2"
-                LineBreakMode="HeadTruncation"
+                LineBreakMode="TailTruncation"
                 WidthRequest="100"
                 HeightRequest="40"
                 Text="{Binding LessonTitle}"

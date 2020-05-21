@@ -8,9 +8,10 @@ namespace EducationApp.ViewModels
     {
         public ObservableCollection<CommentsModel> Comments { get; set; }
 
-        public CommentsTabViewModel()
+        public CommentsTabViewModel(ObservableCollection<CommentsModel> comments)
         {
             Title = "Comments";
+            Comments = comments;
         }
     }
 }

@@ -13,7 +13,8 @@ namespace EducationApp.Views
             this.BindingContext = new CourseOverviewViewModel(courseName);
         }
 
-        void Back_Tapped(System.Object sender, System.EventArgs e)
+
+        public void Back_Tapped(Xamarin.Forms.VisualElement sender, TouchEffect.EventArgs.TouchCompletedEventArgs args)
         {
             Navigation.PopAsync();
         }
@@ -21,5 +22,7 @@ namespace EducationApp.Views
         void TouchEff_Completed(Xamarin.Forms.VisualElement sender, TouchEffect.EventArgs.TouchCompletedEventArgs args)
         {
         }
+
+
     }
 }

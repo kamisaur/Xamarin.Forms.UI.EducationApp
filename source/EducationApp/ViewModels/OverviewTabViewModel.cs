@@ -7,6 +7,10 @@ namespace EducationApp.ViewModels
 
         public string PrimaryColor { get; set; }
 
+        public OverviewTabViewModel()
+        {
+
+        }
 
         public OverviewTabViewModel(string summary, string color)
         {

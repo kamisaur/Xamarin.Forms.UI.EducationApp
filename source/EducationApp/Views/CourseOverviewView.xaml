@@ -35,7 +35,7 @@
             OverviewTabDataTemplate="{StaticResource overviewTabTemplate}"
             SyllabusTabDataTemplate="{StaticResource syllabusTabTemplate}"
             LessonsTabDataTemplate="{StaticResource lessonsTabTemplate}"
-            CommentsTabDataTemplate="{StaticResource commentsTabTemplate}"/>
+            CommentsTabDataTemplate="{StaticResource commentsTabTemplate}" />
 
 
         <x:Array x:Key="tabs" Type="{x:Type x:String}">
@@ -55,6 +55,7 @@
 
             <StackLayout Margin="38,38,38,0" Orientation="Horizontal">
 
+                <!--Back Button-->
                 <Label
                     touch:TouchEff.PressedAnimationDuration="200"
                     touch:TouchEff.RegularAnimationDuration="200"
@@ -68,25 +69,26 @@
 
 
                     <Label.Effects>
-                        <touch:TouchEff Completed="TouchEff_Completed" />
+                        <touch:TouchEff Completed="Back_Tapped" />
                     </Label.Effects>
-
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="Back_Tapped" />
-                    </Label.GestureRecognizers>
-
                 </Label>
 
-
-
-
+                <!--Share Icon-->
                 <Image
-                    BackgroundColor="Black"
                     HeightRequest="22"
                     WidthRequest="22"
+                    Source="share_icon"
                     HorizontalOptions="Center"
-                    VerticalOptions="Center" />
+                    VerticalOptions="Center" 
+                    touch:TouchEff.PressedAnimationDuration="200"
+                    touch:TouchEff.RegularAnimationDuration="200"
+                    touch:TouchEff.PressedOpacity="0.1"
+                    touch:TouchEff.RippleCount="1">
 
+                    <Image.Effects>
+                        <touch:TouchEff Completed="TouchEff_Completed" />
+                    </Image.Effects>
+                </Image>
 
             </StackLayout>
 
@@ -103,18 +105,40 @@
 
             <StackLayout
                 Margin="38,26,38,0"
-                BindableLayout.ItemsSource="{StaticResource tabs}"
+                BindableLayout.ItemsSource="{Binding Tabs}"
                 Orientation="Horizontal">
 
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
 
                         <Label
-                            Text="{Binding .}"
+                            Text="{Binding Title}"
                             FontFamily="{StaticResource SemiBoldFont}"
                             FontSize="14"
                             HorizontalOptions="CenterAndExpand"
-                            TextColor="{StaticResource PrimaryText}" />
+                            TextColor="{StaticResource PrimaryText}">
+
+
+                            <Label.Triggers>
+                                <DataTrigger
+                                    Binding="{Binding IsSelectedTab}"
+                                    TargetType="Label"
+                                    Value="true">
+                                    <Setter Property="TextColor" Value="{StaticResource PrimaryText}" />
+                                </DataTrigger>
+
+                                <DataTrigger
+                                    Binding="{Binding IsSelectedTab}"
+                                    TargetType="Label"
+                                    Value="false">
+                                    <Setter Property="TextColor" Value="{StaticResource SecondaryText}" />
+                                </DataTrigger>
+                            </Label.Triggers>
+
+
+                        </Label>
+
+
 
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
@@ -125,6 +149,7 @@
 
             <CarouselView
                 ItemsSource="{Binding Tabs}"
+                CurrentItem="{Binding CurrentTabItem}"
                 VerticalOptions="End"
                 HeightRequest="400"
                 HorizontalScrollBarVisibility="Never"

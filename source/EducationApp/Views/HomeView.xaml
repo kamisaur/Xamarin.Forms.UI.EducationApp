@@ -9,9 +9,9 @@
     xmlns:templates="clr-namespace:EducationApp.Templates"
     xmlns:controls="clr-namespace:EducationApp.Controls"
     xmlns:touch="clr-namespace:TouchEffect;assembly=TouchEffect"
-    mc:Ignorable="d"
-    NavigationPage.HasNavigationBar="false">
-
+    BackgroundColor="{StaticResource Background}"
+    NavigationPage.HasNavigationBar="false"
+    mc:Ignorable="d">
 
     <ContentPage.Resources>
 
@@ -26,7 +26,7 @@
         </DataTemplate>
 
         <DataTemplate x:Key="lessonTemplate">
-            <templates:LessonTemplate/>
+            <templates:LessonTemplate />
         </DataTemplate>
 
 
@@ -42,13 +42,19 @@
 
     <Grid Margin="{OnPlatform iOS='0,30,0,0', Android='0'}" BackgroundColor="Transparent">
 
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="124" />
+        </Grid.RowDefinitions>
+
         <ScrollView Grid.Row="0">
 
             <StackLayout Spacing="26">
 
                 <!--#region User Info-->
                 <StackLayout
-                    Padding="38,38,0,0"
+                    Padding="{OnPlatform iOS='38,38,0,0',
+                                         Android='38,30,0,0'}"
                     Orientation="Horizontal"
                     Spacing="21">
 
@@ -166,17 +172,10 @@
         </ScrollView>
 
 
-        <pancake:PancakeView
+        <Grid
+            Grid.RowSpan="2"
             VerticalOptions="End"
-            HeightRequest="124"
-            BackgroundColor="{StaticResource AvatarBackground}"
-            CornerRadius="56,56,0,0" />
-
-
-        <Grid VerticalOptions="End" HeightRequest="124">
-
-
-
+            HeightRequest="124">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
@@ -188,6 +187,8 @@
 
 
             <pancake:PancakeView
+                Grid.ColumnSpan="5"
+                VerticalOptions="End"
                 HeightRequest="124"
                 BackgroundColor="{StaticResource AvatarBackground}"
                 CornerRadius="56,56,0,0" />
@@ -199,14 +200,13 @@
                 Source="home"
                 Style="{StaticResource NavbarIconStyle}" />
 
-
             <Image
                 Grid.Column="1"
                 Source="search"
                 Style="{StaticResource NavbarIconStyle}" />
 
 
-
+            <!--Plus Button-->
             <Grid
                 Grid.Column="2"
                 touch:TouchEff.PressedAnimationDuration="200"
@@ -243,7 +243,6 @@
                     HorizontalOptions="Center" />
 
             </Grid>
-
 
 
             <Image
