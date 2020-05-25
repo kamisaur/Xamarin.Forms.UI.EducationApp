@@ -22,30 +22,42 @@
 
         <StackLayout>
 
-            <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" Spacing="12">
+            <Grid
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
 
-                <!--Title-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+
+                <!--  Title  -->
                 <Label
+                    Grid.Column="0"
                     FontFamily="{StaticResource BoldFont}"
                     FontSize="35"
                     MaxLines="2"
                     LineBreakMode="TailTruncation"
-                    HorizontalOptions="FillAndExpand"
+                    HorizontalOptions="Fill"
                     Text="{Binding CourseName}"
                     TextColor="{DynamicResource TextOnCourse}" />
 
-                <!--Course Image-->
+
+                <!--  Course Image  -->
                 <Image
+                    Grid.Column="1"
                     HeightRequest="88"
                     WidthRequest="88"
+                    Opacity="{DynamicResource CourseIconOpacity}"
+                    Source="{Binding CourseImageSource}"
                     HorizontalOptions="End"
-                    Source="CourseImageSource"
-                    VerticalOptions="Start"/>
+                    VerticalOptions="Start" />
 
-            </StackLayout>
+            </Grid>
 
 
-            <!--Progress Text-->
+            <!--  Progress Text  -->
             <Label
                 FontFamily="{StaticResource RegularFont}"
                 FontSize="13"
@@ -61,7 +73,7 @@
                 </Label.FormattedText>
             </Label>
 
-            <!--Progress Bar-->
+            <!--  Progress Bar  -->
             <ProgressBar
                 BackgroundColor="{DynamicResource ProgressBackground}"
                 HeightRequest="5"

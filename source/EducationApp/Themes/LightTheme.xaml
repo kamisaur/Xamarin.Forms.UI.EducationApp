@@ -29,4 +29,6 @@
     <x:String x:Key="ShareIcon">share_icon</x:String>
     <x:String x:Key="AvatarIcon">avatar</x:String>
 
+    <x:Double x:Key="CourseIconOpacity">1.0</x:Double>
+
 </ResourceDictionary>

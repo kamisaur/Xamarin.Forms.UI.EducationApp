@@ -170,7 +170,7 @@ namespace EducationApp
             },
             new CourseItemViewModel(_navigation)
             {
-                CourseName ="Python",
+                CourseName ="Learn Python",
                 CompletedLessons = 472,
                 TotalLessons = 730,
                 CourseImageSource = "python",
@@ -201,7 +201,7 @@ namespace EducationApp
             },
             new CourseItemViewModel(_navigation)
             {
-                CourseName ="Russian",
+                CourseName ="Learn Russian",
                 CompletedLessons = 21,
                 TotalLessons = 112,
                 CourseImageSource = "russian_flag",
