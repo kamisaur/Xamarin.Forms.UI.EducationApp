@@ -21,7 +21,7 @@
     <Color x:Key="NavBarAddIcon">#41474A</Color>
     <Color x:Key="NavBarIcon">#C8CFDA</Color>
 
-    <Color x:Key="StarUnchecked">#4DFFFFFF</Color>
+    <Color x:Key="StarUnchecked">#66FFFFFF</Color>
     <Color x:Key="StarChecked">#99D98B51</Color>
 
     <Color x:Key="AvatarBackground">#26FFFFFF</Color>

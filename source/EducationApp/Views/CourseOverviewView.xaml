@@ -7,9 +7,13 @@
     xmlns:temlateSelector="clr-namespace:EducationApp.TemplateSelectors"
     xmlns:touch="clr-namespace:TouchEffect;assembly=TouchEffect"
     BackgroundColor="{DynamicResource Background}"
-    NavigationPage.HasNavigationBar="false">
+    NavigationPage.HasNavigationBar="false"
+    xmlns:converters="clr-namespace:EducationApp.Converters">
+
 
     <ContentPage.Resources>
+
+        <converters:BoolToTabColorConverter x:Key="tabColorConverter" />
 
         <DataTemplate x:Key="courseDetailedTemplate">
             <templates:CourseDetailedTemplate />
@@ -99,13 +103,13 @@
                 CurrentItem="{Binding CurentCourseItem}"
                 HorizontalScrollBarVisibility="Never"
                 VerticalOptions="FillAndExpand"
-                HeightRequest="245"
+                HeightRequest="{OnPlatform Android=275, iOS=245}"
                 PeekAreaInsets="38"
                 ItemTemplate="{DynamicResource courseDetailedTemplate}" />
 
             <!--Label Tabs-->
             <StackLayout
-                Margin="38,26,38,0"
+                Margin="38,13,38,0"
                 BindableLayout.ItemsSource="{Binding Tabs}"
                 Orientation="Horizontal">
 
@@ -117,33 +121,16 @@
                             FontFamily="{StaticResource SemiBoldFont}"
                             FontSize="14"
                             HorizontalOptions="CenterAndExpand"
-                            TextColor="{DynamicResource PrimaryText}"
                             touch:TouchEff.PressedAnimationDuration="200"
                             touch:TouchEff.RegularAnimationDuration="200"
                             touch:TouchEff.PressedOpacity="0.1"
                             touch:TouchEff.RippleCount="1"
+                            TextColor="{Binding IsSelectedTab, Converter={StaticResource tabColorConverter}}"
                             touch:TouchEff.Command="{Binding SelectTabCommand}">
 
-                            
                             <Label.Effects>
                                 <touch:TouchEff Completed="TouchEff_Completed" />
                             </Label.Effects>
-
-                            <Label.Triggers>
-                                <DataTrigger
-                                    Binding="{Binding IsSelectedTab}"
-                                    TargetType="Label"
-                                    Value="true">
-                                    <Setter Property="TextColor" Value="{DynamicResource PrimaryText}" />
-                                </DataTrigger>
-
-                                <DataTrigger
-                                    Binding="{Binding IsSelectedTab}"
-                                    TargetType="Label"
-                                    Value="false">
-                                    <Setter Property="TextColor" Value="{DynamicResource TabUnselected}" />
-                                </DataTrigger>
-                            </Label.Triggers>
                         </Label>
 
                     </DataTemplate>

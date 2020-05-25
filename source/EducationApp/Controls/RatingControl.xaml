@@ -38,14 +38,14 @@
                             Binding="{Binding .}"
                             TargetType="Label"
                             Value="true">
-                            <Setter Property="TextColor" Value="{StaticResource StarChecked}" />
+                            <Setter Property="TextColor" Value="{DynamicResource StarChecked}" />
                         </DataTrigger>
 
                         <DataTrigger
                             Binding="{Binding .}"
                             TargetType="Label"
                             Value="false">
-                            <Setter Property="TextColor" Value="{StaticResource StarUnchecked}" />
+                            <Setter Property="TextColor" Value="{DynamicResource StarUnchecked}" />
                         </DataTrigger>
                     </Label.Triggers>
 
