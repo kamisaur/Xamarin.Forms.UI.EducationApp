@@ -4,12 +4,34 @@ using System.Collections.ObjectModel;
 using EducationApp.Models;
 using EducationApp.Services;
 using EducationApp.ViewModels;
-
+using Xamarin.Essentials;
 
 namespace EducationApp
 {
     public static class SharedState
     {
+
+        public static Theme ThemeOption
+        {
+            get => (Theme)Preferences.Get(nameof(ThemeOption),
+                HasDefaultThemeOption
+                    ? (int)Theme.Default
+                    : (int)Theme.Light);
+
+            set => Preferences.Set(nameof(ThemeOption), (int)value);
+        }
+
+
+        public static bool HasDefaultThemeOption
+        {
+            get
+            {
+                var minDefaultVersion = new Version(10, 0);
+                return DeviceInfo.Version >= minDefaultVersion;
+            }
+        }
+
+
         /// <summary>
         /// This can be set from the server side
         /// </summary>
@@ -26,17 +48,39 @@ namespace EducationApp
             { "Primary3", "#006998" } ,
             { "Secondary3", "#81A2BB" } ,
         };
-        private static string ErrorColor = "#FF0000";
+        private static string ErrorColorLight = "#FF0000";
+
+        private static Dictionary<string, string> _appColorsDark = new Dictionary<string, string>
+        {
+            { "Primary1", "#59A6BD54" } ,
+            { "Secondary1", "#99C8D98D" } ,
+
+
+            { "Primary2", "#5900987F" } ,
+            { "Secondary2", "#9981BBB2" } ,
+
+
+            { "Primary3", "#59006998" } ,
+            { "Secondary3", "#9981A2BB" } ,
+        };
+        private static string ErrorColorDark = "#99FF0000";
+
 
         public static string GetColor(string colorName)
         {
-            if (_appColorsLight.TryGetValue(colorName, out string value))
+            if (ThemeOption == Theme.Dark)
             {
-                return value;
+                if (_appColorsDark.TryGetValue(colorName, out string value))
+                    return value;
+                else
+                    return ErrorColorLight;
             }
-            else
+            else 
             {
-                return ErrorColor;
+                if (_appColorsLight.TryGetValue(colorName, out string value))
+                    return value;
+                else
+                    return ErrorColorDark;
             }
         }
 

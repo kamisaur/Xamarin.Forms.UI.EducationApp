@@ -17,8 +17,9 @@
         Margin="2"
         Padding="16"
         BorderColor="{Binding PrimaryColor, Converter={StaticResource colorConverter}}"
+        BackgroundColor="{DynamicResource ElevatedBackground}"
         BorderThickness="4"
-        CornerRadius="33"
+        CornerRadius="40"
         HasShadow="False"/>
 
 
@@ -26,13 +27,13 @@
 
         <Label
             Text="About"
-            TextColor="{StaticResource PrimaryText}"
+            TextColor="{DynamicResource PrimaryText}"
             FontFamily="{StaticResource BoldFont}"
             FontSize="24"/>
 
         <Label
             Text="{Binding OverviewSummary}"
-            TextColor="{StaticResource PrimaryText}"
+            TextColor="{DynamicResource PrimaryText}"
             FontFamily="{StaticResource RegularFont}"
             FontSize="16" />
 

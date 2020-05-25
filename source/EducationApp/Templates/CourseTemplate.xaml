@@ -20,7 +20,6 @@
         touch:TouchEff.PressedOpacity="0.1"
         touch:TouchEff.RippleCount="1"
         touch:TouchEff.Command="{Binding ShowCourseOverviewCommand}"
-        d:BackgroundColor="{StaticResource Course1}"
         HeightRequest="108"
         BackgroundColor="{Binding PrimaryColor, Converter={StaticResource colorConverter}}"
         CornerRadius="29"
@@ -43,7 +42,7 @@
                     FontSize="22"
                     HorizontalOptions="FillAndExpand"
                     Text="{Binding CourseName}"
-                    TextColor="{StaticResource TextOnCourse}"
+                    TextColor="{DynamicResource TextOnCourse}"
                     VerticalOptions="Center" />
 
 
@@ -51,7 +50,7 @@
                     FontSize="20"
                     HorizontalOptions="End"
                     Text="⋯"
-                    TextColor="{StaticResource TextOnCourse}"
+                    TextColor="{DynamicResource TextOnCourse}"
                     VerticalOptions="Center" />
 
             </StackLayout>
@@ -60,7 +59,7 @@
                 d:Text="35/210 lessons"
                 FontFamily="{StaticResource RegularFont}"
                 FontSize="13"
-                TextColor="{StaticResource TextOnCourse}">
+                TextColor="{DynamicResource TextOnCourse}">
 
                 <Label.FormattedText>
                     <FormattedString>
@@ -73,8 +72,7 @@
             </Label>
 
             <ProgressBar
-                d:ProgressColor="{StaticResource Progress1}"
-                BackgroundColor="{StaticResource TextOnCourse}"
+                BackgroundColor="{DynamicResource ProgressBackground}"
                 HeightRequest="5"
                 Progress="{Binding Progress}"
                 WidthRequest="176"

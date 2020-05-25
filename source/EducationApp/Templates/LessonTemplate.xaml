@@ -22,6 +22,7 @@
         touch:TouchEff.PressedOpacity="0.1"
         touch:TouchEff.RippleCount="1"
         BorderColor="{Binding Color, Converter={StaticResource colorConverter}}"
+        BackgroundColor="{DynamicResource ElevatedBackground}"
         BorderThickness="4"
         CornerRadius="33"
         HasShadow="False">
@@ -61,7 +62,7 @@
                 WidthRequest="100"
                 HeightRequest="40"
                 Text="{Binding LessonTitle}"
-                TextColor="{StaticResource PrimaryText}"
+                TextColor="{DynamicResource PrimaryText}"
                 VerticalOptions="Center" />
 
 
@@ -71,7 +72,7 @@
                 FontSize="10"
                 HorizontalOptions="FillAndExpand"
                 Text="{Binding LessonDuration, Converter={StaticResource timeConverter}}"
-                TextColor="{StaticResource SecondaryText}"
+                TextColor="{DynamicResource SecondaryText}"
                 VerticalOptions="Center">
 
             </Label>

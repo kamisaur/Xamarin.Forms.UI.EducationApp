@@ -3,14 +3,21 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using EducationApp.Models;
+using EducationApp.Services;
 using Xamarin.Forms;
 
 namespace EducationApp.ViewModels
 {
-    public class CourseOverviewViewModel : INotifyPropertyChanged
+    public class CourseOverviewViewModel : INotifyPropertyChanged, IUpdatable
     {
-        public ObservableCollection<CourseItemViewModel> Courses { get; set; }
+        private ObservableCollection<CourseItemViewModel> _courses;
+        public ObservableCollection<CourseItemViewModel> Courses
+        {
+            get => _courses;
+            set { _courses = value; NotifyPropertyChanged(); }
+        }
 
 
         private ObservableCollection<TabViewModel> _tabs;
@@ -29,7 +36,9 @@ namespace EducationApp.ViewModels
             {
                 _curentCourseItem = value;
                 NotifyPropertyChanged();
-                UpdateTabs();
+
+                if(_curentCourseItem != null)
+                    UpdateTabs();
             }
         }
 
@@ -95,6 +104,14 @@ namespace EducationApp.ViewModels
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+
+
+        public void Update(bool hasAppResumed = false)
+        {
+            Courses = new ObservableCollection<CourseItemViewModel>(SharedState.GetCourses());
+            UpdateTabs();
         }
     }
 }

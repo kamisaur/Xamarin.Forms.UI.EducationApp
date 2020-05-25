@@ -46,6 +46,7 @@
                         Margin="2"
                         Padding="0"
                         BorderColor="{Binding Color, Converter={StaticResource colorConverter}}"
+                        BackgroundColor="{DynamicResource ElevatedBackground}"
                         BorderThickness="4"
                         CornerRadius="33"
                         HasShadow="False">
@@ -79,7 +80,7 @@
                                     FontSize="14"
                                     HorizontalOptions="FillAndExpand"
                                     Text="{Binding LessonTitle}"
-                                    TextColor="{StaticResource PrimaryText}"
+                                    TextColor="{DynamicResource PrimaryText}"
                                     VerticalOptions="Center" />
 
 
@@ -91,7 +92,7 @@
                                     FontSize="10"
                                     HorizontalOptions="FillAndExpand"
                                     Text="{Binding LessonDuration, Converter={StaticResource timeConverter}}"
-                                    TextColor="{StaticResource SecondaryText}"
+                                    TextColor="{DynamicResource SecondaryText}"
                                     VerticalOptions="Center" />
 
 

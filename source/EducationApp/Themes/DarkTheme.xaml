@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="EducationApp.Themes.DarkTheme">
+    
+    <Color x:Key="Background">#121212</Color>
+
+    <Color x:Key="PrimaryText">#DDFFFFFF</Color>
+    <Color x:Key="SecondaryText">#99FFFFFF</Color>
+    <Color x:Key="TextOnCourse">#DDFFFFFF</Color>
+
+    <Color x:Key="ProgressBackground">#33000000</Color>
+    <Color x:Key="ElevatedBackground">#09FFFFFF</Color>
+
+    <Color x:Key="TabUnselected">#33FFFFFF</Color>
+    <Color x:Key="LessonTabItemBackground">#1AFFFFFF</Color>
+
+
+
+    <Color x:Key="NavBarAddIcon">#41474A</Color>
+    <Color x:Key="NavBarIcon">#C8CFDA</Color>
+
+    <Color x:Key="StarUnchecked">#4DFFFFFF</Color>
+    <Color x:Key="StarChecked">#99D98B51</Color>
+
+    <Color x:Key="AvatarBackground">#26FFFFFF</Color>
+
+
+    <x:String x:Key="ShareIcon">share_icon_dark</x:String>
+    <x:String x:Key="AvatarIcon">avatar_dark</x:String>
+
+</ResourceDictionary>

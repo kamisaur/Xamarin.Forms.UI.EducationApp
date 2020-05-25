@@ -24,7 +24,7 @@
 
             <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" Spacing="12">
 
-
+                <!--Title-->
                 <Label
                     FontFamily="{StaticResource BoldFont}"
                     FontSize="35"
@@ -32,9 +32,9 @@
                     LineBreakMode="TailTruncation"
                     HorizontalOptions="FillAndExpand"
                     Text="{Binding CourseName}"
-                    TextColor="{StaticResource TextOnCourse}" />
+                    TextColor="{DynamicResource TextOnCourse}" />
 
-
+                <!--Course Image-->
                 <Image
                     HeightRequest="88"
                     WidthRequest="88"
@@ -45,11 +45,11 @@
             </StackLayout>
 
 
-
+            <!--Progress Text-->
             <Label
                 FontFamily="{StaticResource RegularFont}"
                 FontSize="13"
-                TextColor="{StaticResource TextOnCourse}">
+                TextColor="{DynamicResource TextOnCourse}">
 
                 <Label.FormattedText>
                     <FormattedString>
@@ -61,9 +61,9 @@
                 </Label.FormattedText>
             </Label>
 
-
+            <!--Progress Bar-->
             <ProgressBar
-                BackgroundColor="{StaticResource TextOnCourse}"
+                BackgroundColor="{DynamicResource ProgressBackground}"
                 HeightRequest="5"
                 Progress="{Binding Progress}"
                 ProgressColor="{Binding SecondaryColor, Converter={StaticResource colorConverter}}" />

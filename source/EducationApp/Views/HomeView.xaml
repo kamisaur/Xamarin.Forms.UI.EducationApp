@@ -9,7 +9,7 @@
     xmlns:templates="clr-namespace:EducationApp.Templates"
     xmlns:controls="clr-namespace:EducationApp.Controls"
     xmlns:touch="clr-namespace:TouchEffect;assembly=TouchEffect"
-    BackgroundColor="{StaticResource Background}"
+    BackgroundColor="{DynamicResource Background}"
     NavigationPage.HasNavigationBar="false"
     mc:Ignorable="d">
 
@@ -51,33 +51,34 @@
 
             <StackLayout Spacing="26">
 
-                <!--User Info-->
+                <!--  User Info  -->
                 <StackLayout
                     Padding="{OnPlatform iOS='38,38,0,0',
                                          Android='38,30,0,0'}"
                     Orientation="Horizontal"
                     Spacing="21">
 
-                    <!--User Image-->
+                    <!--  User Image  -->
                     <Grid HeightRequest="65" WidthRequest="65">
 
-                        <BoxView BackgroundColor="{StaticResource AvatarBackground}" CornerRadius="14" />
+                        <BoxView BackgroundColor="{DynamicResource AvatarBackground}" CornerRadius="14" />
 
                         <Image
                             HorizontalOptions="Center"
                             VerticalOptions="Center"
-                            Source="avatar" />
+                            Source="{DynamicResource AvatarIcon}" />
 
                     </Grid>
 
                     <StackLayout VerticalOptions="Center">
 
-                        <!--Name/Rating-->
+                        <!--  Name/Rating  -->
                         <StackLayout Orientation="Horizontal" Spacing="16">
 
                             <Label
                                 d:Text="John Whilson"
                                 FontFamily="{StaticResource RegularFont}"
+                                TextColor="{DynamicResource PrimaryText}"
                                 FontSize="22"
                                 Text="{Binding User.Name}" />
 
@@ -86,10 +87,11 @@
                         </StackLayout>
 
 
-                        <!--Age/Position-->
+                        <!--  Age/Position  -->
                         <Label
                             d:Text="22 y.o., Frontend Developer"
                             FontFamily="{StaticResource RegularFont}"
+                            TextColor="{DynamicResource SecondaryText}"
                             FontSize="14">
 
                             <Label.FormattedText>
@@ -108,12 +110,15 @@
                 </StackLayout>
 
 
-                <Label Style="{StaticResource TitleLabel}" Text="My courses" />
+                <Label
+                    Style="{StaticResource TitleLabel}"
+                    TextColor="{DynamicResource PrimaryText}"
+                    Text="My courses" />
 
-
+                <!--  Courses  -->
                 <CollectionView
                     ItemsSource="{Binding Courses}"
-                    ItemTemplate="{StaticResource sourceTemplate}"
+                    ItemTemplate="{DynamicResource sourceTemplate}"
                     HeightRequest="250"
                     HorizontalScrollBarVisibility="Never">
 
@@ -136,7 +141,10 @@
                 </CollectionView>
 
 
-                <Label Style="{StaticResource TitleLabel}" Text="Today's lesson" />
+                <Label
+                    Style="{StaticResource TitleLabel}"
+                    TextColor="{DynamicResource PrimaryText}"
+                    Text="Today's lesson" />
 
 
                 <CollectionView
@@ -187,7 +195,7 @@
                 Grid.ColumnSpan="5"
                 VerticalOptions="End"
                 HeightRequest="124"
-                BackgroundColor="{StaticResource AvatarBackground}"
+                BackgroundColor="{DynamicResource AvatarBackground}"
                 CornerRadius="56,56,0,0" />
 
 
@@ -203,7 +211,7 @@
                 Style="{StaticResource NavbarIconStyle}" />
 
 
-            <!--Plus Button-->
+            <!--  Plus Button  -->
             <Grid
                 Grid.Column="2"
                 touch:TouchEff.PressedAnimationDuration="200"
@@ -218,9 +226,9 @@
                     <touch:TouchEff Completed="TouchEff_Completed" />
                 </Grid.Effects>
                 <pancake:PancakeView
-                    BackgroundColor="{StaticResource NavBarAddIcon}"
+                    BackgroundColor="{DynamicResource NavBarAddIcon}"
                     CornerRadius="30"
-                    BorderColor="{StaticResource TextOnCourse}"
+                    BorderColor="{DynamicResource Background}"
                     BorderThickness="10"
                     HeightRequest="78"
                     WidthRequest="78" />
@@ -228,14 +236,14 @@
                 <BoxView
                     HeightRequest="1.8"
                     WidthRequest="19"
-                    BackgroundColor="{StaticResource TextOnCourse}"
+                    BackgroundColor="{DynamicResource Background}"
                     HorizontalOptions="Center"
                     VerticalOptions="Center" />
 
                 <BoxView
                     WidthRequest="1.8"
                     HeightRequest="19"
-                    BackgroundColor="{StaticResource TextOnCourse}"
+                    BackgroundColor="{DynamicResource Background}"
                     VerticalOptions="Center"
                     HorizontalOptions="Center" />
 

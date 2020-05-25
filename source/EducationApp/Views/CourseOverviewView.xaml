@@ -6,6 +6,7 @@
     xmlns:templates="clr-namespace:EducationApp.Templates"
     xmlns:temlateSelector="clr-namespace:EducationApp.TemplateSelectors"
     xmlns:touch="clr-namespace:TouchEffect;assembly=TouchEffect"
+    BackgroundColor="{DynamicResource Background}"
     NavigationPage.HasNavigationBar="false">
 
     <ContentPage.Resources>
@@ -65,7 +66,7 @@
                     Text="⟵"
                     TranslationY="-10"
                     HorizontalOptions="FillAndExpand"
-                    TextColor="{StaticResource PrimaryText}">
+                    TextColor="{DynamicResource PrimaryText}">
 
 
                     <Label.Effects>
@@ -77,7 +78,7 @@
                 <Image
                     HeightRequest="22"
                     WidthRequest="22"
-                    Source="share_icon"
+                    Source="{DynamicResource ShareIcon}"
                     HorizontalOptions="Center"
                     VerticalOptions="Center" 
                     touch:TouchEff.PressedAnimationDuration="200"
@@ -92,7 +93,7 @@
 
             </StackLayout>
 
-
+            <!--Courses-->
             <CarouselView
                 ItemsSource="{Binding Courses}"
                 CurrentItem="{Binding CurentCourseItem}"
@@ -100,9 +101,9 @@
                 VerticalOptions="FillAndExpand"
                 HeightRequest="245"
                 PeekAreaInsets="38"
-                ItemTemplate="{StaticResource courseDetailedTemplate}" />
+                ItemTemplate="{DynamicResource courseDetailedTemplate}" />
 
-
+            <!--Label Tabs-->
             <StackLayout
                 Margin="38,26,38,0"
                 BindableLayout.ItemsSource="{Binding Tabs}"
@@ -116,7 +117,7 @@
                             FontFamily="{StaticResource SemiBoldFont}"
                             FontSize="14"
                             HorizontalOptions="CenterAndExpand"
-                            TextColor="{StaticResource PrimaryText}"
+                            TextColor="{DynamicResource PrimaryText}"
                             touch:TouchEff.PressedAnimationDuration="200"
                             touch:TouchEff.RegularAnimationDuration="200"
                             touch:TouchEff.PressedOpacity="0.1"
@@ -133,14 +134,14 @@
                                     Binding="{Binding IsSelectedTab}"
                                     TargetType="Label"
                                     Value="true">
-                                    <Setter Property="TextColor" Value="{StaticResource PrimaryText}" />
+                                    <Setter Property="TextColor" Value="{DynamicResource PrimaryText}" />
                                 </DataTrigger>
 
                                 <DataTrigger
                                     Binding="{Binding IsSelectedTab}"
                                     TargetType="Label"
                                     Value="false">
-                                    <Setter Property="TextColor" Value="{StaticResource SecondaryText}" />
+                                    <Setter Property="TextColor" Value="{DynamicResource TabUnselected}" />
                                 </DataTrigger>
                             </Label.Triggers>
                         </Label>
@@ -150,17 +151,15 @@
 
             </StackLayout>
 
-
-
+            <!--Tabs-->
             <CarouselView
                 ItemsSource="{Binding Tabs}"
                 CurrentItem="{Binding CurrentTabItem}"
                 VerticalOptions="End"
                 HeightRequest="400"
                 HorizontalScrollBarVisibility="Never"
-                ItemTemplate="{StaticResource tabSelector}" />
-
-
+                ItemTemplate="{StaticResource tabSelector}"
+                EmptyView="No Courses"/>
 
         </StackLayout>
 

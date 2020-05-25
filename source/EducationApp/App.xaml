@@ -27,29 +27,9 @@
         </OnPlatform>
 
         <!--  Colors  -->
-        <Color x:Key="Background">#FFFFFF</Color>
+        <ResourceDictionary Source="Themes/LightTheme.xaml" />
+        <!--<ResourceDictionary Source="Themes/DarkTheme.xaml" />-->
 
-
-        <Color x:Key="PrimaryText">#384554</Color>
-        <Color x:Key="SecondaryText">#A2A9B4</Color>
-        <Color x:Key="TextOnCourse">#FFFFFF</Color>
-
-        <Color x:Key="Course1">#A6BD54</Color>
-        <Color x:Key="Progress1">#C8D98D</Color>
-
-        <Color x:Key="Course2">#00987F</Color>
-        <Color x:Key="Progress2">#81BBB2</Color>
-
-
-        <Color x:Key="NavBarAddIcon">#88AEC0</Color>
-        <Color x:Key="NavBarIcon">#C8CFDA</Color>
-
-
-        <Color x:Key="StarUnchecked">#DCDFE8</Color>
-        <Color x:Key="StarChecked">#D98B51</Color>
-
-
-        <Color x:Key="AvatarBackground">#EEF1F5</Color>
 
     </Application.Resources>
 </Application>

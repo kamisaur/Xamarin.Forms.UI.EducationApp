@@ -36,13 +36,13 @@
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand">
 
-                        <BoxView BackgroundColor="{StaticResource AvatarBackground}" CornerRadius="14" />
+                        <BoxView BackgroundColor="{DynamicResource AvatarBackground}" CornerRadius="14" />
 
                         <Image
                             Margin="6"
                             HorizontalOptions="Center"
                             VerticalOptions="Center"
-                            Source="avatar" />
+                            Source="{DynamicResource AvatarIcon}"/>
                     </Grid>
 
 
@@ -51,7 +51,7 @@
                         Grid.Column="1"
                         VerticalOptions="Center"
                         Text="{Binding CommentorName}"
-                        TextColor="{StaticResource PrimaryText}"
+                        TextColor="{DynamicResource PrimaryText}"
                         FontFamily="{StaticResource BoldFont}" />
 
 
@@ -60,6 +60,7 @@
                         Grid.Row="1"
                         Grid.Column="1"
                         Text="{Binding CommentText}"
+                        TextColor="{DynamicResource PrimaryText}"
                         FontFamily="{StaticResource RegularFont}" />
 
                     <Label
@@ -67,7 +68,7 @@
                         Grid.Column="1"
                         VerticalOptions="Center"
                         FontSize="14"
-                        TextColor="{StaticResource SecondaryText}"
+                        TextColor="{DynamicResource SecondaryText}"
                         FontFamily="{StaticResource RegularFont}" 
                         Text="{Binding CommentDate, StringFormat='{0:MMMM dd}'}" />
 

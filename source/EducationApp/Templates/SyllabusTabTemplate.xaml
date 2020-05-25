@@ -42,7 +42,7 @@
                         Padding="0"
                         VerticalOptions="FillAndExpand"
                         CornerRadius="27"
-                        BackgroundColor="{StaticResource AvatarBackground}"
+                        BackgroundColor="{DynamicResource LessonTabItemBackground}"
                         HasShadow="False">
 
 
@@ -79,7 +79,7 @@
                                     FontSize="10"
                                     HorizontalOptions="FillAndExpand"
                                     Text="{Binding SyllabusDuration, Converter={StaticResource timeConverter}}"
-                                    TextColor="{StaticResource SecondaryText}"
+                                    TextColor="{DynamicResource SecondaryText}"
                                     VerticalOptions="Center" />
 
 
@@ -90,7 +90,7 @@
                                 FontSize="20"
                                 HorizontalOptions="End"
                                 Text="→"
-                                TextColor="{StaticResource PrimaryText}"
+                                TextColor="{DynamicResource PrimaryText}"
                                 VerticalOptions="Center" />
 
 
