@@ -11,6 +11,8 @@ namespace EducationApp.Models
 
         public string Color { get; set; }
 
+        public float Progress { get; set; }
+
         public LessonModel()
         {
 
@@ -20,12 +22,14 @@ namespace EducationApp.Models
             int lessonNumber
             , string lessonTitle
             , TimeSpan lessonduration
-            , string color)
+            , string color
+            , float progress)
         {
             LessonNumber = lessonNumber;
             LessonTitle = lessonTitle;
             LessonDuration = lessonduration;
             Color = color;
+            Progress = progress;
         }
     }
 }

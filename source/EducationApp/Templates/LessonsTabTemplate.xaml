@@ -4,6 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:controls="clr-namespace:EducationApp.Controls"
     xmlns:converters="clr-namespace:EducationApp.Converters">
 
 
@@ -29,16 +30,16 @@
                     </Grid.ColumnDefinitions>
 
 
-                    <BoxView
+                    <controls:RadialProgressBar 
                         Margin="0,0,17,0"
-                        HeightRequest="22"
-                        WidthRequest="22"
-                        BackgroundColor="{Binding Color, Converter={StaticResource colorConverter}}"
+                        HeightRequest="30"
+                        WidthRequest="30"
+                        Progress="{Binding Progress}"
+                        ProgressThickness="3"
+                        ProgressBackgroundColor="{DynamicResource RadialProgressBackground}"
+                        ProgressColor="{Binding Color, Converter={StaticResource colorConverter}}"
                         HorizontalOptions="Center"
-                        VerticalOptions="Center"
-                        CornerRadius="11" />
-
-
+                        VerticalOptions="Center"/>
 
 
                     <pancake:PancakeView

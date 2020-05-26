@@ -6,6 +6,7 @@
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:converters="clr-namespace:EducationApp.Converters"
+    xmlns:controls="clr-namespace:EducationApp.Controls"
     xmlns:touch="clr-namespace:TouchEffect;assembly=TouchEffect"
     mc:Ignorable="d">
 
@@ -71,13 +72,15 @@
                 </Label.FormattedText>
             </Label>
 
-            <ProgressBar
-                BackgroundColor="{DynamicResource ProgressBackground}"
-                HeightRequest="5"
-                Progress="{Binding Progress}"
-                WidthRequest="176"
+            <controls:RichProgressBar
                 HorizontalOptions="Start"
-                ProgressColor="{Binding SecondaryColor, Converter={StaticResource colorConverter}}" />
+                WidthRequest="176"
+                Percentage="{Binding Progress}"
+                GradientStartColor="{Binding SecondaryColor, Converter={StaticResource colorConverter}}"
+                GradientEndColor="{Binding SecondaryColor, Converter={StaticResource colorConverter}}"
+                Style="{StaticResource progressBarStyle}"/>
+
+
 
         </StackLayout>
 

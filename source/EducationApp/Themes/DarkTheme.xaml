@@ -32,5 +32,7 @@
 
     <x:Double x:Key="CourseIconOpacity">0.80</x:Double>
 
+    <Color x:Key="RadialProgressBackground">#33CAD0DA</Color>
+
 
 </ResourceDictionary>

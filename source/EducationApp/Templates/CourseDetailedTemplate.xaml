@@ -3,6 +3,7 @@
     x:Class="EducationApp.Templates.CourseDetailedTemplate"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:EducationApp.Controls"
     xmlns:converters="clr-namespace:EducationApp.Converters">
 
 
@@ -73,12 +74,11 @@
                 </Label.FormattedText>
             </Label>
 
-            <!--  Progress Bar  -->
-            <ProgressBar
-                BackgroundColor="{DynamicResource ProgressBackground}"
-                HeightRequest="5"
-                Progress="{Binding Progress}"
-                ProgressColor="{Binding SecondaryColor, Converter={StaticResource colorConverter}}" />
+            <controls:RichProgressBar
+                Percentage="{Binding Progress}"
+                GradientStartColor="{Binding SecondaryColor, Converter={StaticResource colorConverter}}"
+                GradientEndColor="{Binding SecondaryColor, Converter={StaticResource colorConverter}}"
+                Style="{StaticResource progressBarStyle}"/>
 
         </StackLayout>
 

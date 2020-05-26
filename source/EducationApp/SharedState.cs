@@ -145,20 +145,20 @@ namespace EducationApp
                 Comments = Comments,
                 Syllabus = new List<SyllabusModel>
                 {
-                    new SyllabusModel(1, "Introductions", TimeSpan.FromMinutes(80), "Primary1"),
-                    new SyllabusModel(2, "Holidays / travel ", TimeSpan.FromMinutes(80), "Primary1"),
-                    new SyllabusModel(3, "House Items", TimeSpan.FromMinutes(80), "Primary1"),
-                    new SyllabusModel(4, "Car Parts", TimeSpan.FromMinutes(80), "Primary1"),
+                    new SyllabusModel(1, "Introductions", TimeSpan.FromMinutes(80), "Primary1", 0.9f),
+                    new SyllabusModel(2, "Holidays / travel ", TimeSpan.FromMinutes(80), "Primary1", 0.0f),
+                    new SyllabusModel(3, "House Items", TimeSpan.FromMinutes(80), "Primary1", 0.4f),
+                    new SyllabusModel(4, "Car Parts", TimeSpan.FromMinutes(80), "Primary1", 0.1f),
                 },
                 Lessons = new List<LessonModel>
                 {
-                    new LessonModel(1, "English Phrases With Never", TimeSpan.FromMinutes(45), "Primary1" ),
-                    new LessonModel(2, "Phone Collocations in English", TimeSpan.FromMinutes(45), "Primary1" ),
-                    new LessonModel(3, "Learn 10 Telephoning Phrasal Verbs", TimeSpan.FromMinutes(45), "Primary1" ),
-                    new LessonModel(4, "English Expressions with You", TimeSpan.FromMinutes(45), "Primary1" ),
-                    new LessonModel(5, "Memory and Vocabulary Collocations", TimeSpan.FromMinutes(45), "Primary1" ),
-                    new LessonModel(6, "Compound nouns – Clothing", TimeSpan.FromMinutes(45), "Primary1" ),
-                    new LessonModel(7, "Summer holidays", TimeSpan.FromMinutes(45), "Primary1" ),
+                    new LessonModel(1, "English Phrases With Never", TimeSpan.FromMinutes(45), "Primary1" , 1f),
+                    new LessonModel(2, "Phone Collocations in English", TimeSpan.FromMinutes(45), "Primary1" , 0.4f),
+                    new LessonModel(3, "Learn 10 Telephoning Phrasal Verbs", TimeSpan.FromMinutes(45), "Primary1", 0.6f ),
+                    new LessonModel(4, "English Expressions with You", TimeSpan.FromMinutes(45), "Primary1", 0.9f ),
+                    new LessonModel(5, "Memory and Vocabulary Collocations", TimeSpan.FromMinutes(45), "Primary1", 0.8f ),
+                    new LessonModel(6, "Compound nouns – Clothing", TimeSpan.FromMinutes(45), "Primary1", 0.4f ),
+                    new LessonModel(7, "Summer holidays", TimeSpan.FromMinutes(45), "Primary1", 1f ),
                 },
                 Summary =
                     "This Comprehensive English: Overview & Practice " +
@@ -179,19 +179,19 @@ namespace EducationApp
                 Comments = Comments,
                 Syllabus = new List<SyllabusModel>
                 {
-                    new SyllabusModel(1, "Python Syntax", TimeSpan.FromMinutes(90), "Primary2"),
-                    new SyllabusModel(2, "Console Output", TimeSpan.FromMinutes(87), "Primary2"),
-                    new SyllabusModel(3, "Conditional Flows", TimeSpan.FromMinutes(75), "Primary2"),
-                    new SyllabusModel(4, "Functions", TimeSpan.FromMinutes(80), "Primary2"),
+                    new SyllabusModel(1, "Python Syntax", TimeSpan.FromMinutes(90), "Primary2", 0.2f),
+                    new SyllabusModel(2, "Console Output", TimeSpan.FromMinutes(87), "Primary2", 0.1f),
+                    new SyllabusModel(3, "Conditional Flows", TimeSpan.FromMinutes(75), "Primary2", 0.0f),
+                    new SyllabusModel(4, "Functions", TimeSpan.FromMinutes(80), "Primary2", 0.0f),
                 },
                 Lessons = new List<LessonModel>
                 {
-                    new LessonModel(1, "Whetting Your Appetite", TimeSpan.FromMinutes(90), "Primary2" ),
-                    new LessonModel(2, "Using the Python Interpreter", TimeSpan.FromMinutes(90), "Primary2" ),
-                    new LessonModel(3, "Invoking the Interpreter", TimeSpan.FromMinutes(90), "Primary2" ),
-                    new LessonModel(4, "Argument Passing", TimeSpan.FromMinutes(90), "Primary2" ),
-                    new LessonModel(5, "Interactive Mode", TimeSpan.FromMinutes(90), "Primary2" ),
-                    new LessonModel(6, "The Interpreter and Its Environment", TimeSpan.FromMinutes(90), "Primary2" ),
+                    new LessonModel(1, "Wetting Your Appetite", TimeSpan.FromMinutes(90), "Primary2", 0.9f ),
+                    new LessonModel(2, "Using the Python Interpreter", TimeSpan.FromMinutes(90), "Primary2", 0.2f ),
+                    new LessonModel(3, "Invoking the Interpreter", TimeSpan.FromMinutes(90), "Primary2", 0.3f ),
+                    new LessonModel(4, "Argument Passing", TimeSpan.FromMinutes(90), "Primary2", 0.4f ),
+                    new LessonModel(5, "Interactive Mode", TimeSpan.FromMinutes(90), "Primary2" , 0.5f),
+                    new LessonModel(6, "The Interpreter and Its Environment", TimeSpan.FromMinutes(90), "Primary2", 0.6f ),
                 },
                 Summary =
                     "Python is a general-purpose interpreted, interactive, object-oriented, and high-level" +
@@ -210,20 +210,20 @@ namespace EducationApp
                 Comments = Comments,
                 Syllabus = new List<SyllabusModel>
                 {
-                    new SyllabusModel(1, "Learn to Read", TimeSpan.FromMinutes(356), "Primary3"),
-                    new SyllabusModel(2, "The Wrold Around", TimeSpan.FromMinutes(268), "Primary3"),
-                    new SyllabusModel(3, "Let's Get Acquainted!" ,TimeSpan.FromMinutes(145), "Primary3"),
-                    new SyllabusModel(4, "About yourself, your family and friends", TimeSpan.FromMinutes(20), "Primary3"),
-                    new SyllabusModel(5, "My day", TimeSpan.FromMinutes(20), "Primary3"),
+                    new SyllabusModel(1, "Learn to Read", TimeSpan.FromMinutes(356), "Primary3", 0.3f),
+                    new SyllabusModel(2, "The Wrold Around", TimeSpan.FromMinutes(268), "Primary3", 0.4f),
+                    new SyllabusModel(3, "Let's Get Acquainted!" ,TimeSpan.FromMinutes(145), "Primary3", 0.5f),
+                    new SyllabusModel(4, "About yourself, your family and friends", TimeSpan.FromMinutes(20), "Primary3", 0.6f),
+                    new SyllabusModel(5, "My day", TimeSpan.FromMinutes(20), "Primary3", 0.7f),
                 },
                 Lessons = new List<LessonModel>
                 {
-                    new LessonModel(1, "Russian Alphabet", TimeSpan.FromMinutes(45), "Primary3" ),
-                    new LessonModel(2, "Russian Handwriting", TimeSpan.FromMinutes(45), "Primary3" ),
-                    new LessonModel(3, "Numbers", TimeSpan.FromMinutes(45), "Primary3" ),
-                    new LessonModel(4, "Basic Phrases", TimeSpan.FromMinutes(45), "Primary3" ),
-                    new LessonModel(5, "In a Bar/Cafe", TimeSpan.FromMinutes(45), "Primary3" ),
-                    new LessonModel(6, "Verbs / Pronouns", TimeSpan.FromMinutes(45), "Primary3" ),
+                    new LessonModel(1, "Russian Alphabet", TimeSpan.FromMinutes(45), "Primary3", 0.3f ),
+                    new LessonModel(2, "Russian Handwriting", TimeSpan.FromMinutes(45), "Primary3", 0.3f),
+                    new LessonModel(3, "Numbers", TimeSpan.FromMinutes(45), "Primary3", 0.5f ),
+                    new LessonModel(4, "Basic Phrases", TimeSpan.FromMinutes(45), "Primary3", 0.3f ),
+                    new LessonModel(5, "In a Bar/Cafe", TimeSpan.FromMinutes(45), "Primary3", 0.1f ),
+                    new LessonModel(6, "Verbs / Pronouns", TimeSpan.FromMinutes(45), "Primary3" , 0.7f),
                 },
                 Summary =
                     "For those who are new to Russian language. A grammar-based course that focuses on" +

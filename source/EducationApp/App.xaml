@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:EducationApp.Controls"
     mc:Ignorable="d">
     <Application.Resources>
 
@@ -29,6 +30,17 @@
         <!--  Colors  -->
         <ResourceDictionary Source="Themes/LightTheme.xaml" />
         <!--<ResourceDictionary Source="Themes/DarkTheme.xaml" />-->
+
+
+        <Style x:Key="progressBarStyle" TargetType="controls:RichProgressBar">
+            <Setter Property="CornerRadius" Value="2"/>
+            <Setter Property="HeightRequest" Value="5"/>
+            <Setter Property="BarBackgroundColor" Value="{DynamicResource ProgressBackground}"/>
+            <Setter Property="HasText" Value="False"/>
+        </Style>
+
+
+            
 
 
     </Application.Resources>
