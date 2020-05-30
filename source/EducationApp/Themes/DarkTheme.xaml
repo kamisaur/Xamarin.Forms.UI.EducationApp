@@ -17,7 +17,6 @@
     <Color x:Key="LessonTabItemBackground">#1AFFFFFF</Color>
 
 
-
     <Color x:Key="NavBarAddIcon">#41474A</Color>
     <Color x:Key="NavBarIcon">#C8CFDA</Color>
 
