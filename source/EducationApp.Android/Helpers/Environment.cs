@@ -20,6 +20,8 @@ namespace EducationApp.Droid.Helpers
             window.ClearFlags(Android.Views.WindowManagerFlags.TranslucentStatus);
             window.SetStatusBarColor(color.ToPlatformColor());
 
+            //window.SetNavigationBarColor(color.ToPlatformColor());
+
             if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.M)
             {
                 var flag = (Android.Views.StatusBarVisibility)Android.Views.SystemUiFlags.LightStatusBar;

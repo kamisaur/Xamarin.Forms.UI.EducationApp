@@ -42,12 +42,9 @@
 
     <Grid Margin="{OnPlatform iOS='0,30,0,0', Android='0'}" BackgroundColor="Transparent">
 
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition Height="124" />
-        </Grid.RowDefinitions>
+   
 
-        <ScrollView Grid.Row="0">
+        <ScrollView Grid.Row="0" >
 
             <StackLayout Spacing="26">
 
@@ -170,6 +167,8 @@
                     </CollectionView.ItemsLayout>
                 </CollectionView>
 
+                <!--Empty Box to give space to scroll-->
+                <BoxView HeightRequest="124"/>
 
 
             </StackLayout>
@@ -177,9 +176,10 @@
         </ScrollView>
 
 
+        <!--  Bottom Tab  -->
         <Grid
-            Grid.RowSpan="2"
             VerticalOptions="End"
+            BackgroundColor="Transparent"
             HeightRequest="124">
 
             <Grid.ColumnDefinitions>
