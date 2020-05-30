@@ -176,6 +176,9 @@
     <BundleResource Include="Resources\share_icon_dark.png" />
     <BundleResource Include="Resources\share_icon_dark%402x.png" />
     <BundleResource Include="Resources\share_icon_dark%403x.png" />
+    <BundleResource Include="Resources\tick.png" />
+    <BundleResource Include="Resources\tick%402x.png" />
+    <BundleResource Include="Resources\tick%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\avatar.imageset\" />

@@ -30,6 +30,7 @@
     <x:String x:Key="AvatarIcon">avatar_dark</x:String>
 
     <x:Double x:Key="CourseIconOpacity">0.80</x:Double>
+    <x:Double x:Key="TickOpacity">0.50</x:Double>
 
     <Color x:Key="RadialProgressBackground">#33CAD0DA</Color>
 

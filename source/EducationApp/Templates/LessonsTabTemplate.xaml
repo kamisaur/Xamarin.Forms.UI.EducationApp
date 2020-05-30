@@ -11,6 +11,7 @@
     <Grid.Resources>
         <converters:TimeSpanConverter x:Key="timeConverter" />
         <converters:AppColorNameToColorConverter x:Key="colorConverter" />
+        <converters:ProgressToBoolConverter x:Key="progressConverter" />
     </Grid.Resources>
 
 
@@ -30,16 +31,50 @@
                     </Grid.ColumnDefinitions>
 
 
-                    <controls:RadialProgressBar 
+                    <!--  Radial Progress  -->
+                    <Grid
                         Margin="0,0,17,0"
                         HeightRequest="30"
                         WidthRequest="30"
-                        Progress="{Binding Progress}"
-                        ProgressThickness="3"
-                        ProgressBackgroundColor="{DynamicResource RadialProgressBackground}"
-                        ProgressColor="{Binding Color, Converter={StaticResource colorConverter}}"
                         HorizontalOptions="Center"
-                        VerticalOptions="Center"/>
+                        VerticalOptions="Center">
+
+
+                        <controls:RadialProgressBar
+                            Progress="{Binding Progress}"
+                            ProgressThickness="3"
+                            ProgressBackgroundColor="{DynamicResource RadialProgressBackground}"
+                            ProgressColor="{Binding Color, Converter={StaticResource colorConverter}}">
+
+
+                            <controls:RadialProgressBar.Triggers>
+                                <DataTrigger
+                                    TargetType="controls:RadialProgressBar"
+                                    Binding="{Binding Progress, Converter={StaticResource progressConverter}}"
+                                    Value="True">
+                                    <Setter Property="IsVisible" Value="False" />
+                                </DataTrigger>
+                                <DataTrigger
+                                    TargetType="controls:RadialProgressBar"
+                                    Binding="{Binding Progress, Converter={StaticResource progressConverter}}"
+                                    Value="False">
+                                    <Setter Property="IsVisible" Value="True" />
+                                </DataTrigger>
+                            </controls:RadialProgressBar.Triggers>
+
+                        </controls:RadialProgressBar>
+
+
+                        <!--  Task Completed  -->
+                        <Grid Margin="2" IsVisible="{Binding Progress, Converter={StaticResource progressConverter}}">
+
+                            <BoxView BackgroundColor="{Binding Color, Converter={StaticResource colorConverter}}" CornerRadius="15" />
+
+                            <Image Source="tick" Opacity="{StaticResource TickOpacity}"/>
+                        </Grid>
+
+                    </Grid>
+
 
 
                     <pancake:PancakeView

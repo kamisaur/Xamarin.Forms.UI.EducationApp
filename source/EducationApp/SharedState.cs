@@ -145,10 +145,10 @@ namespace EducationApp
                 Comments = Comments,
                 Syllabus = new List<SyllabusModel>
                 {
-                    new SyllabusModel(1, "Introductions", TimeSpan.FromMinutes(80), "Primary1", 0.9f),
-                    new SyllabusModel(2, "Holidays / travel ", TimeSpan.FromMinutes(80), "Primary1", 0.0f),
-                    new SyllabusModel(3, "House Items", TimeSpan.FromMinutes(80), "Primary1", 0.4f),
-                    new SyllabusModel(4, "Car Parts", TimeSpan.FromMinutes(80), "Primary1", 0.1f),
+                    new SyllabusModel(1, "Introductions", TimeSpan.FromMinutes(80), "Primary1", 1f),
+                    new SyllabusModel(2, "Holidays / travel ", TimeSpan.FromMinutes(80), "Primary1", 0.9f),
+                    new SyllabusModel(3, "House Items", TimeSpan.FromMinutes(80), "Primary1", 1f),
+                    new SyllabusModel(4, "Car Parts", TimeSpan.FromMinutes(80), "Primary1", 1f),
                 },
                 Lessons = new List<LessonModel>
                 {
@@ -179,14 +179,14 @@ namespace EducationApp
                 Comments = Comments,
                 Syllabus = new List<SyllabusModel>
                 {
-                    new SyllabusModel(1, "Python Syntax", TimeSpan.FromMinutes(90), "Primary2", 0.2f),
+                    new SyllabusModel(1, "Python Syntax", TimeSpan.FromMinutes(90), "Primary2", 1f),
                     new SyllabusModel(2, "Console Output", TimeSpan.FromMinutes(87), "Primary2", 0.1f),
                     new SyllabusModel(3, "Conditional Flows", TimeSpan.FromMinutes(75), "Primary2", 0.0f),
                     new SyllabusModel(4, "Functions", TimeSpan.FromMinutes(80), "Primary2", 0.0f),
                 },
                 Lessons = new List<LessonModel>
                 {
-                    new LessonModel(1, "Wetting Your Appetite", TimeSpan.FromMinutes(90), "Primary2", 0.9f ),
+                    new LessonModel(1, "Wetting Your Appetite", TimeSpan.FromMinutes(90), "Primary2", 1f ),
                     new LessonModel(2, "Using the Python Interpreter", TimeSpan.FromMinutes(90), "Primary2", 0.2f ),
                     new LessonModel(3, "Invoking the Interpreter", TimeSpan.FromMinutes(90), "Primary2", 0.3f ),
                     new LessonModel(4, "Argument Passing", TimeSpan.FromMinutes(90), "Primary2", 0.4f ),
@@ -210,7 +210,7 @@ namespace EducationApp
                 Comments = Comments,
                 Syllabus = new List<SyllabusModel>
                 {
-                    new SyllabusModel(1, "Learn to Read", TimeSpan.FromMinutes(356), "Primary3", 0.3f),
+                    new SyllabusModel(1, "Learn to Read", TimeSpan.FromMinutes(356), "Primary3", 1f),
                     new SyllabusModel(2, "The Wrold Around", TimeSpan.FromMinutes(268), "Primary3", 0.4f),
                     new SyllabusModel(3, "Let's Get Acquainted!" ,TimeSpan.FromMinutes(145), "Primary3", 0.5f),
                     new SyllabusModel(4, "About yourself, your family and friends", TimeSpan.FromMinutes(20), "Primary3", 0.6f),
@@ -218,7 +218,7 @@ namespace EducationApp
                 },
                 Lessons = new List<LessonModel>
                 {
-                    new LessonModel(1, "Russian Alphabet", TimeSpan.FromMinutes(45), "Primary3", 0.3f ),
+                    new LessonModel(1, "Russian Alphabet", TimeSpan.FromMinutes(45), "Primary3", 1f ),
                     new LessonModel(2, "Russian Handwriting", TimeSpan.FromMinutes(45), "Primary3", 0.3f),
                     new LessonModel(3, "Numbers", TimeSpan.FromMinutes(45), "Primary3", 0.5f ),
                     new LessonModel(4, "Basic Phrases", TimeSpan.FromMinutes(45), "Primary3", 0.3f ),

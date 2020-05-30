@@ -32,6 +32,7 @@
     <x:String x:Key="AvatarIcon">avatar</x:String>
 
     <x:Double x:Key="CourseIconOpacity">1.0</x:Double>
+    <x:Double x:Key="TickOpacity">1.0</x:Double>
 
     <Color x:Key="BottomBarColor">#EEF1F5</Color>
 
