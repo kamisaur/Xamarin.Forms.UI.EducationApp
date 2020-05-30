@@ -252,15 +252,26 @@
 
             <Image
                 Grid.Column="3"
-                Source="home"
+                Source="notification_bell"
                 Style="{StaticResource NavbarIconStyle}" />
 
 
             <Image
                 Grid.Column="4"
                 Margin="0,0,20,0"
-                Source="search"
-                Style="{StaticResource NavbarIconStyle}" />
+                Source="theme"
+                touch:TouchEff.PressedAnimationDuration="200"
+                touch:TouchEff.RegularAnimationDuration="200"
+                touch:TouchEff.PressedOpacity="0.1"
+                touch:TouchEff.RippleCount="-1"
+                Style="{StaticResource NavbarIconStyle}" >
+
+
+                <Image.Effects>
+                    <touch:TouchEff Completed="ThemeIcon_Pressed" />
+                </Image.Effects>
+
+            </Image>
 
 
 
@@ -270,4 +281,4 @@
     </Grid>
 
 
-</ContentPage>
+</ContentPage> 

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using EducationApp.Helpers;
+using EducationApp.Models;
 using EducationApp.Services;
 using EducationApp.ViewModels;
 using Xamarin.Forms;
@@ -30,5 +32,25 @@ namespace EducationApp.Views
             var bindingContext = (IUpdatable)this.BindingContext;
             bindingContext.Update();
         }
+
+        void ThemeIcon_Pressed(Xamarin.Forms.VisualElement sender, TouchEffect.EventArgs.TouchCompletedEventArgs args)
+        {
+            UpdateTheme();
+            ((IUpdatable)this.BindingContext).Update();
+        }
+
+
+
+        public static void UpdateTheme()
+        {
+            if (SharedState.ThemeOption == Theme.Light)
+                SharedState.ThemeOption = Theme.Dark;
+            else
+                SharedState.ThemeOption = Theme.Light;
+
+            ThemeHelper.ChangeTheme(SharedState.ThemeOption, true);
+        }
+
+
     }
 }

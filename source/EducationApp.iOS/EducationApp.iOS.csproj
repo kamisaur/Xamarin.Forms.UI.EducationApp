@@ -179,6 +179,9 @@
     <BundleResource Include="Resources\tick.png" />
     <BundleResource Include="Resources\tick%402x.png" />
     <BundleResource Include="Resources\tick%403x.png" />
+    <BundleResource Include="Resources\theme.png" />
+    <BundleResource Include="Resources\theme%402x.png" />
+    <BundleResource Include="Resources\theme%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\avatar.imageset\" />
