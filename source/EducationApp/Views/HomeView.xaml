@@ -195,7 +195,7 @@
                 Grid.ColumnSpan="5"
                 VerticalOptions="End"
                 HeightRequest="124"
-                BackgroundColor="{DynamicResource AvatarBackground}"
+                BackgroundColor="{DynamicResource BottomBarColor}"
                 CornerRadius="56,56,0,0" />
 
 

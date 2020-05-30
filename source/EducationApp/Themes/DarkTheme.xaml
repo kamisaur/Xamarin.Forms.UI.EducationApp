@@ -35,4 +35,7 @@
     <Color x:Key="RadialProgressBackground">#33CAD0DA</Color>
 
 
+    <Color x:Key="BottomBarColor">#353535</Color>
+
+
 </ResourceDictionary>
